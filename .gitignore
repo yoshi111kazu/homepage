@@ -3,3 +3,4 @@
 /src/inc/define.inc
 /src/session
 /web_root/assets/node_modules
+/web_root/tmp
