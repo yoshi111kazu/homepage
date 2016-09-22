@@ -15,7 +15,7 @@ gulp.task('default', function() {
   console.log('--------- default ----------');
 });
 
-gulp.task('all', ['imagemin', 'minify-html', 'concat_js', 'uglify']);
+gulp.task('all', ['minify-html', 'concat_js', 'uglify']);
 
 gulp.task("imagemin", function() {
   console.log('--------- imagemin ----------');
