@@ -7,7 +7,7 @@ var app = app || {};
 		controller: new app.MainController(),
 		//ルーティング設定
 		appRoutes : {
-			''					: 'NewsMusicLists',
+			''					: 'Top',
 			'NewsMusic'			: 'NewsMusicLists',
 			'NewsItIt'			: 'NewsItItLists',
 			'NewsItProgram'		: 'NewsItProgramLists',
