@@ -65,6 +65,7 @@ gulp.task("concat_js", function() {
    './js/lib/jquery.min.js', './js/lib/bootstrap.min.js', './js/lib/json2.js',
    './js/lib/underscore-min.js', './js/lib/backbone-min.js', './js/lib/backbone.marionette.min.js',
    './js/models/rss-model.js', './js/collections/collection.js',
+   './js/views/Top.js',
    './js/views/NewsMusic.js',
    './js/views/NewsItIt.js',
    './js/views/NewsItProgram.js',

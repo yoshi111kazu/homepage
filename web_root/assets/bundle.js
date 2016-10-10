@@ -599,6 +599,14 @@ var app = app || {};
 var app = app || {};
 
 (function(app) {
+	app.TopView = Backbone.Marionette.ItemView.extend({
+		template: '#Top-template',
+	});
+})(app);
+
+var app = app || {};
+
+(function(app) {
 	// News
 	app.NewsMusicItemView = Backbone.Marionette.ItemView.extend({
 		tagName : 'li',
@@ -938,6 +946,7 @@ var app = app || {};
 (function(app) {
 	app.MainController = Backbone.Marionette.Controller.extend({
 
+		Top : function() { this.nextView(app.TopView); },
 		NewsMusicLists : function() { this.nextView(app.NewsMusicLayoutView); },
 		NewsItItLists : function() { this.nextView(app.NewsItItLayoutView); },
 		NewsItProgramLists : function() { this.nextView(app.NewsItProgramLayoutView); },
@@ -965,7 +974,7 @@ var app = app || {};
 		controller: new app.MainController(),
 		//ルーティング設定
 		appRoutes : {
-			''					: 'NewsMusicLists',
+			''					: 'Top',
 			'NewsMusic'			: 'NewsMusicLists',
 			'NewsItIt'			: 'NewsItItLists',
 			'NewsItProgram'		: 'NewsItProgramLists',
@@ -1001,9 +1010,23 @@ $(document).ready(function () {
 	$("a[href^=#]").click(function(event){
 		$(".navbar-collapse").collapse('hide');
 	});
-	//$(".navbar-toggle").sidr({
-		//source: '.nav-collapse'
-	//});
+
+	//goto top button
+    var topBtn = $('#page-top');    
+    topBtn.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
 });
 
 var news_ary = {
@@ -1018,25 +1041,28 @@ var news_ary = {
 
 function locationHashChanged() {
 	var hash_val = location.hash
-	if ( hash_val == '' || hash_val == '#' ) {
-		hash_val = '#NewsMusic';
-	}
 	var val_flg = 0;
+
+	if ( hash_val == '#' ) { hash_val = '#NewsMusic'; }
+	if ( hash_val == '' ) { val_flg = 1; }
 	Object.keys(news_ary).forEach( function(key) {
-		if ( key == hash_val ) { val_flg = 1; }
+		if ( key == hash_val ) { val_flg = 2; }
 	}, news_ary );
 
-	var breadcrumb = '';
-	var rss = '';
-	var menu_link = '[&nbsp;&nbsp;<a href="#NewsMusic">Music</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Technology( <a href="#NewsItIt">IT</a> / <a href="#NewsItProgram">Program</a> / <a href="#NewsItInfra">Infra</a> / <a href="#NewsItYuru">ゆるネタ</a> )&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#NewsCar">Car</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#NewsGame">Game</a>&nbsp;&nbsp;]';
 	if ( val_flg == 1 ) {
+		//$("toppage").fadeIn(1000);
+	}
+	if ( val_flg == 2 ) {
+		var breadcrumb = '';
+		var rss = '';
+		var menu_link = '[&nbsp;&nbsp;<a href="#NewsMusic">Music</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Technology( <a href="#NewsItIt">IT</a> / <a href="#NewsItProgram">Program</a> / <a href="#NewsItInfra">Infra</a> / <a href="#NewsItYuru">ゆるネタ</a> )&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#NewsCar">Car</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#NewsGame">Game</a>&nbsp;&nbsp;]';
 		breadcrumb = '<h6>' + news_ary[hash_val][0] + '</h6>';
 		//breadcrumb = '<h6>&nbsp;&nbsp;&nbsp;' + menu_link + '</h6>';
 		rss = '<h6><i class="fa fa-rss" aria-hidden="true"></i>&nbsp;&nbsp;' + news_ary[hash_val][1] + '</h6>';
-	}
 
-	$("#newsheader_01").html(breadcrumb);
-	$("#newsheader_02").html(rss);
+		$("#newsheader_01").html(breadcrumb);
+		$("#newsheader_02").html(rss);
+	}
 }
 
 window.onload = locationHashChanged;

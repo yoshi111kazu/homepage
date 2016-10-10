@@ -3,6 +3,7 @@ var app = app || {};
 (function(app) {
 	app.MainController = Backbone.Marionette.Controller.extend({
 
+		Top : function() { this.nextView(app.TopView); },
 		NewsMusicLists : function() { this.nextView(app.NewsMusicLayoutView); },
 		NewsItItLists : function() { this.nextView(app.NewsItItLayoutView); },
 		NewsItProgramLists : function() { this.nextView(app.NewsItProgramLayoutView); },

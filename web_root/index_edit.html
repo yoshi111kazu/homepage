@@ -11,19 +11,30 @@
 	<link href="assets/css/icomoon/style.css" rel="stylesheet">
 	<style>
 body{
-	padding-top: 50px;
+	padding-top: 46px;
 }
 
 .navbar{
 	border-radius: 0;
 	border: none;
-	background-color: rgba(62,63,58,0.92);
+	background-color: rgba(62,63,58,0.95);
 }
 .navbar-brand {
 	background: url("assets/image/_MainLogo.png") no-repeat center bottom 10pt;
 	background-size: contain;
 	width: 134px;
 	margin-left: 3px !important;
+}
+
+.toppage {
+	background-color: rgba(62,63,58,0.95);
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	display:inline-block;
+	vertical-align:center;
 }
 
 .mylist_prof, .mylist_news {
@@ -105,14 +116,23 @@ body{
 
 <!-- NewsMenu -->
 <div class="container-fluid">
-    <div class="row-fluid text-muted">
-        <div class="col-sm-5 hidden-xs" id="newsheader_01"></div>
-        <div class="col-sm-7" id="newsheader_02" align="right"></div>
-    </div>
+	<div class="row-fluid text-muted">
+		<div class="col-sm-5 hidden-xs" id="newsheader_01"></div>
+		<div class="col-sm-7" id="newsheader_02" align="right"></div>
+	</div>
 </div>
 
 <!-- コンテンツ -->
 <div id="main"></div>
+
+	<!-- Top -->
+	<script type="text/template" id="Top-template">
+		<div class="toppage">
+			<br><br><br><br><br><br><br><br>
+			<p><img src="assets/image/_MainLogo_v2_white_300.png"></p>
+			<br><br><br><br><br><br><br><br>
+		</div>
+	</script>
 
 	<!-- NewsMusic -->
 	<script type="text/template" id="NewsMusic-layout-template"><div id="NewsMusic-lists"></div></script>
@@ -212,6 +232,8 @@ body{
 			<a href="/wp/" target="_blank"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>&nbsp;こちら</a>
 		</div>
 	</script>
+
+<p id="page-top"><a href="#wrap"><br><i class="fa fa-angle-double-up" aria-hidden="true"></i></a></p>
 
 <br>
 <div id="footer">
