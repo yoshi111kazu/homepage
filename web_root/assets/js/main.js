@@ -35,16 +35,12 @@ function locationHashChanged() {
 	var hash_val = location.hash
 	var val_flg = 0;
 
-	if ( hash_val == '#' ) { hash_val = '#NewsMusic'; }
-	if ( hash_val == '' ) { val_flg = 1; }
+	if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsMusic'; }
 	Object.keys(news_ary).forEach( function(key) {
-		if ( key == hash_val ) { val_flg = 2; }
+		if ( key == hash_val ) { val_flg = 1; }
 	}, news_ary );
 
 	if ( val_flg == 1 ) {
-		//$("toppage").fadeIn(1000);
-	}
-	if ( val_flg == 2 ) {
 		var breadcrumb = '';
 		var rss = '';
 		var menu_link = '[&nbsp;&nbsp;<a href="#NewsMusic">Music</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Technology( <a href="#NewsItIt">IT</a> / <a href="#NewsItProgram">Program</a> / <a href="#NewsItInfra">Infra</a> / <a href="#NewsItYuru">ゆるネタ</a> )&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#NewsCar">Car</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#NewsGame">Game</a>&nbsp;&nbsp;]';
