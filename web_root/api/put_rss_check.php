@@ -17,7 +17,7 @@
 	$ClsRSS = new ClsRSS();
 
 	//$genre = array( 'music', 'it_it', 'it_program', 'it_infra', 'it_yuru', 'game', 'car' );
-	$genre = array( 'it_program' );
+	$genre = array( 'it_it' );
 	foreach( $genre as $key => $val ) {
 		$assign_data = array();
 		$assign_data['merge_data'] = $ClsRSS->getFullRSS( $val, '20' );
@@ -29,6 +29,7 @@
 		print_r ( $rss_site );
 		foreach( $assign_data['merge_data'] as $key => $val ) {
 			print( "[".$key."][".$val['update']."]".$val['link_from']." : ".$val['title']."<br>" );
+			print( $val['data']."<br>" );
 		}
 		echo "</pre>";
 	}

@@ -116,6 +116,10 @@ class ClsRSS {
 							$desc_tmp = preg_replace( '/\<b\>\<a .*\<\/a\>\<\/b\>/', '', $desc_tmp );
 							*/
 
+							if ( $val['site'] == 'TechCrunch' ) {
+								$val2['description'] = '';
+							}
+
 							$result[] = array( 'title' => $val2['title'],
 													'link' => $val2['link'],
 													'link_from' => $val['site'],
