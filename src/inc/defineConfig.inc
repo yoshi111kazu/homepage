@@ -1,16 +1,16 @@
 <?
 	// テンプレートファイルの削除
-	template_rm();
+	//template_rm();
 
 	/**********/
 	/* Smarty */
 	/**********/
-	require_once( SMARTY_PHP );
-	$main_tpl = new Smarty();
-	$main_tpl->template_dir = TEMPLATE_PATH."templates";
-	$main_tpl->compile_dir = TEMPLATE_PATH."templates_c";
-	$main_tpl->compile_check = true;
-	$main_tpl->caching = 0;
+	//require_once( SMARTY_PHP );
+	//$main_tpl = new Smarty();
+	//$main_tpl->setTemplateDir = TEMPLATE_PATH."templates";
+	//$main_tpl->setCompileDir = TEMPLATE_PATH."templates_c";
+	//$main_tpl->compile_check = true;
+	//$main_tpl->caching = 0;
 
 	/***********/
 	/* Session */
@@ -31,7 +31,7 @@
 	$CtlSess->anyData->setValue( 'access_cnt', $NewCnt );
 	$CtlSess->sessionRegister();
 	$assign_before_data['access_cnt'] = $CtlSess->anyData->getValue( 'access_cnt' );
-	template_assign( $main_tpl, $assign_before_data );
+	//template_assign( $main_tpl, $assign_before_data );
 
 	/*********/
 	/* Debug */

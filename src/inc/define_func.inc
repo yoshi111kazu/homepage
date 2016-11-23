@@ -83,8 +83,8 @@ function EndFunction() {
 			// サニタイジング
 			$assign_data = doSanitize( $assign_data );
 			// 表示
-			template_assign( $main_tpl, $assign_data );
-			template_display( $main_tpl, $template_list );
+			print_r( $assign_data );
+			print_r( $template_list );
 			if( $errsql != "" ) {
 				debug_print( $errsql, "SQL" );
 			}
@@ -238,6 +238,7 @@ function conv_value( $str ){
 //////////////////////////////////////////////////////////////////////////////
 // テンプレート関連
 //////////////////////////////////////////////////////////////////////////////
+/*
 function template_assign( &$tpl, &$assign_data ){
 
 	$tpl->assign( $assign_data );
@@ -258,6 +259,7 @@ function template_rm() {
 		unlink( TEMPLATE_PATH."templates_c/".$rm_files[$ix] );
 	}
 }
+*/
 
 //////////////////////////////////////////////////////////////////////////////
 // サニタイジング

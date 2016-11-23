@@ -6,36 +6,20 @@ var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 var minifyHTML = require('gulp-minify-html');
 var imagemin = require('gulp-imagemin');
-//var jpegtran = require('imagemin-jpegtran');
-//var optipng = require('imagemin-optipng');
-var cache      = require('gulp-cached');
+var cache = require('gulp-cached');
 var pngquant = require('imagemin-pngquant');
 
 gulp.task('default', function() {
-  console.log('--------- default ----------');
+  console.log('--------- no task ----------');
 });
 
-gulp.task('all', ['minify-html', 'concat_js', 'uglify']);
+gulp.task('all', ['html', 'css', 'js', 'image']);
+gulp.task('html', ['html-min']);
+gulp.task('css', ['css-merge', 'css-min']);
+gulp.task('js', ['js-merge', 'js-min']);
+gulp.task('image', ['image-min']);
 
-gulp.task("imagemin", function() {
-  console.log('--------- imagemin ----------');
-    gulp.src('./image/src/*.+(jpg|jpeg|png|gif|svg)')
-    .pipe(cache('imagemining'))
-    .pipe(imagemin({
-      progressive: true,
-      svgoPlugins: [
-        { removeViewBox: false },
-        { cleanupIDs: false }
-      ],
-      use: [pngquant()]
-    }))
-    .pipe(rename({prefix: '_'}))
-    .pipe(gulp.dest('./image/'))
-    ;
-});
-
-gulp.task("minify-html", function() {
-  console.log('--------- minify-html ----------');
+gulp.task("html-min", function() {
   gulp.src('../index_edit.html')
     .pipe(minifyHTML({ empty: true }))
     .pipe(rename("index.html"))
@@ -43,24 +27,22 @@ gulp.task("minify-html", function() {
     ;
 });
 
-/*
-gulp.task("concat_css", function() {
-  console.log('--------- concat CSS ----------');
+gulp.task("css-merge", function() {
   var files = [
-   './css/bootstrap_custom04.min.css',
-   './css/main.css',
-   './css/font-awesome.min.css',
-   './css/style.css'
+   './css/main.css'
   ];
   gulp.src(files)
     .pipe(concat('bundle.css'))
     .pipe(gulp.dest('./'))
     ;
 });
-*/
+gulp.task('css-min', function() {
+  gulp.src('./bundle.css')
+    .pipe(cssmin())
+    .pipe(gulp.dest('./'))
+});
 
-gulp.task("concat_js", function() {
-  console.log('--------- concat JS ----------');
+gulp.task("js-merge", function() {
   var files = [
    './js/lib/jquery.min.js', './js/lib/bootstrap.min.js', './js/lib/json2.js',
    './js/lib/underscore-min.js', './js/lib/backbone-min.js', './js/lib/backbone.marionette.min.js',
@@ -85,9 +67,24 @@ gulp.task("concat_js", function() {
     ;
 });
 
-gulp.task('uglify', function() {
-  console.log('--------- uglify ----------');
+gulp.task('js-min', function() {
   gulp.src('./bundle.js')
     .pipe(uglify({preserveComments: 'some'}))
     .pipe(gulp.dest('./'))
+});
+
+gulp.task("image-min", function() {
+    gulp.src('./image/src/*.+(jpg|jpeg|png|gif|svg)')
+    .pipe(cache('imagemining'))
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [
+        { removeViewBox: false },
+        { cleanupIDs: false }
+      ],
+      use: [pngquant()]
+    }))
+    .pipe(rename({prefix: '_'}))
+    .pipe(gulp.dest('./image/'))
+    ;
 });

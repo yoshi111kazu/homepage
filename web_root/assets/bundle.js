@@ -1007,12 +1007,17 @@ var app = app || {};
 
 })(app);
 
+// Ready
 $(document).ready(function () {
 	$("a[href^=#]").click(function(event){
 		$(".navbar-collapse").collapse('hide');
 	});
 
-	//goto top button
+    setTimeout(function() {
+      $(".welcome").fadeOut(600);
+    }, 0);
+
+	// GoTo Top Button
     var topBtn = $('#page-top');    
     topBtn.hide();
     $(window).scroll(function () {
@@ -1029,6 +1034,12 @@ $(document).ready(function () {
         return false;
     });
 });
+
+// Load
+window.onload = locationHashChanged;
+
+// HachChange
+window.onhashchange = locationHashChanged;
 
 var news_ary = {
 	'#NewsMusic': [ 'News > Music', 'BARKS, RandoM' ],
@@ -1055,10 +1066,7 @@ function locationHashChanged() {
 		breadcrumb = '<h6>' + news_ary[hash_val][0] + '</h6>';
 		rss = '<h6><i class="fa fa-rss" aria-hidden="true"></i>&nbsp;&nbsp;' + news_ary[hash_val][1] + '</h6>';
 	}
+
 	$("#newsheader_01").html(breadcrumb);
 	$("#newsheader_02").html(rss);
 }
-
-window.onload = locationHashChanged;
-window.onhashchange = locationHashChanged;
-
