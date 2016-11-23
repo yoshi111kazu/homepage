@@ -29,7 +29,6 @@ gulp.task("html-min", function() {
 
 gulp.task("css-merge", function() {
   var files = [
-   //'./css/bootstrap_custom04.min.css',
    './css/main.css'
   ];
   gulp.src(files)
@@ -42,7 +41,6 @@ gulp.task('css-min', function() {
     .pipe(cssmin())
     .pipe(gulp.dest('./'))
 });
-
 
 gulp.task("js-merge", function() {
   var files = [
