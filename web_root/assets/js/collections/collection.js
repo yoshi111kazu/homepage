@@ -26,6 +26,11 @@ var app = app || {};
 		model : app.NewsItYuruModel,
 		parse : function(response) { return response; }
 	});
+	app.NewsHealthCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=health',
+		model : app.NewsHealthModel,
+		parse : function(response) { return response; }
+	});
 	app.NewsCarCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=car',
 		model : app.NewsCarModel,

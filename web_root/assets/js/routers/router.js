@@ -15,6 +15,7 @@ var app = app || {};
 			'NewsItInfra'		: 'NewsItInfraLists',
 			'NewsItYuru'		: 'NewsItYuruLists',
 			'NewsItLink'		: 'NewsItLinkLists',
+			'NewsHealth'		: 'NewsHealthLists',
 			'NewsCar'			: 'NewsCarLists',
 			'NewsGame'			: 'NewsGameLists',
 			'Prof'				: 'Prof',

@@ -37,7 +37,8 @@ var news_ary = {
 	'#NewsItIt': [ 'News > Technology（全般/Business）', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan' ],
 	'#NewsItProgram': [ 'News > Technology（Program）', 'CodeZine' ],
 	'#NewsItInfra': [ 'News > Technology（Infra）', 'ITpro Cloud, クラウドWatch, Think IT' ],
-	'#NewsItYuru': [ 'News > Technology（ゆるネタ）', 'Gigazine, ネタりか, ASCII.jp' ],
+	'#NewsHealth': [ 'News > HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
+	'#NewsItYuru': [ 'News > ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
 	'#NewsCar': [ 'News > Car', 'Carview, オートックワン' ],
 	'#NewsGame': [ 'News > Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ]
 };

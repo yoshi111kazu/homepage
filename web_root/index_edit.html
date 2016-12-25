@@ -25,7 +25,7 @@ body{
 .navbar{
 	border-radius: 0;
 	border: none;
-	background-color: rgba(62,63,58,0.95);
+	background-color: rgba(62,63,58,0.90);
 }
 .navbar-brand {
 	background: url("assets/image/_MainLogo_v2_eeeeee_341.png") no-repeat center bottom 10pt;
@@ -60,7 +60,7 @@ body{
 	background-attachment: fixed;
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-color: rgba(62,63,58,0.95);
+	background-color: rgba(62,63,58,0.90);
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -101,11 +101,11 @@ body{
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="#NewsMusic"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;音楽</a></li>
 						<li class="dropdown-header"><i class="fa fa-desktop" aria-hidden="true"></i>&nbsp;&nbsp;テクノロジー</li>
-						<li><a href="#NewsItIt">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;一般・ビジネス</a></li>
-						<li><a href="#NewsItProgram">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;プログラム</a></li>
-						<li><a href="#NewsItInfra">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;インフラ</a></li>
-						<li><a href="#NewsItYuru">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;ゆるネタ</a></li>
-						<!--<li><a href="#NewsItLink">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;Link</a></li>-->
+						<li><a href="#NewsItIt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;一般・ビジネス</a></li>
+						<li><a href="#NewsItProgram">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;プログラム</a></li>
+						<li><a href="#NewsItInfra">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;インフラ</a></li>
+						<li><a href="#NewsHealth"><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;&nbsp;ヘルスケア</a></li>
+						<li><a href="#NewsItYuru"><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;&nbsp;ゆるネタ</a></li>
 						<li><a href="#NewsCar"><i class="fa fa-car" aria-hidden="true"></i>&nbsp;&nbsp;車</a></li>
 						<li><a href="#NewsGame"><i class="fa fa-gamepad" aria-hidden="true"></i>&nbsp;&nbsp;ゲーム</a></li>
 					</ul>
@@ -114,13 +114,13 @@ body{
 					<a href="" class="dropdown-toggle" data-toggle="dropdown">About<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="#Prof"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Profile</a></li>
-						<li><a href="#Blog"><i class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;Blog</a></li>
+						<li><a href="#Blog"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;Blog</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown">Archive<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="https://old.ishino.info" target="_blank"><i class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;旧ページ&nbsp;(〜2006)</a></li>
+						<li><a href="https://old.ishino.info" target="_blank"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;旧ページ&nbsp;(〜2006)</a></li>
 					</ul>
 				</li>
 			<ul>
@@ -185,6 +185,12 @@ body{
 		</div>
 	</script>
 
+	<!-- NewsHealth -->
+	<script type="text/template" id="NewsHealth-layout-template"><div id="NewsHealth-lists"></div></script>
+	<script type="text/template" id="NewsHealth-composite-template">
+		<div class="list-group"><ul class="list-group"></ul></div>
+	</script>
+
 	<!-- NewsCar -->
 	<script type="text/template" id="NewsCar-layout-template"><div id="NewsCar-lists"></div></script>
 	<script type="text/template" id="NewsCar-composite-template">
@@ -237,6 +243,7 @@ body{
 			<br>モバイル端末は別ウィンドウで表示します。<br><br>
 			<a href="/wp/" target="_blank"><span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>&nbsp;こちら</a>
 		</div>
+		<br>
 	</script>
 
 <p id="page-top"><a href="#wrap"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a></p>

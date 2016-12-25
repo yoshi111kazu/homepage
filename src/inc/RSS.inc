@@ -43,7 +43,7 @@ class ClsRSS {
 		} elseif ( $genre == 'it_yuru' ) {
 			$rss_site[] = array( 'genre' => 'other', 'site' => 'Gigazine', 'URL' => 'http://feed.rssad.jp/rss/gigazine/rss_2.0' );
 			$rss_site[] = array( 'genre' => 'other', 'site' => 'ネタりか', 'URL' => 'http://netallica.yahoo.co.jp/rss/top' );
-			$rss_site[] = array( 'genre' => 'it', 'site' => 'ASCII.jp', 'URL' => 'http://rss.rssad.jp/rss/ascii/rss.xml' );
+			$rss_site[] = array( 'genre' => 'other', 'site' => 'ASCII.jp', 'URL' => 'http://rss.rssad.jp/rss/ascii/rss.xml' );
 		} elseif ( $genre == 'game' ) {
 			$rss_site[] = array( 'genre' => 'game', 'site' => 'SocailGameInfo', 'URL' => 'http://gamebiz.jp/?feed=rss' );
 			$rss_site[] = array( 'genre' => 'game', 'site' => 'GameBusiness.jp', 'URL' => 'http://www.gamebusiness.jp/rss/rss.php' );
@@ -53,8 +53,13 @@ class ClsRSS {
 			//$rss_site[] = array( 'genre' => 'game', 'site' => 'iNSIDE', 'URL' => 'http://www.inside-games.jp/rss/index.rdf' );
 			//$rss_site[] = array( 'genre' => 'game', 'site' => 'マイナビ', 'URL' => 'http://rss.rssad.jp/rss/mycom/hobby/game' );
 		} elseif ( $genre == 'car' ) {
-			$rss_site[] = array( 'genre' => 'game', 'site' => 'Carview', 'URL' => 'http://www.carview.co.jp/rss/?t=news' );
-			$rss_site[] = array( 'genre' => 'game', 'site' => 'オートックワン', 'URL' => 'http://autoc-one.jp/news/rss/' );
+			$rss_site[] = array( 'genre' => 'car', 'site' => 'Carview', 'URL' => 'http://www.carview.co.jp/rss/?t=news' );
+			$rss_site[] = array( 'genre' => 'car', 'site' => 'オートックワン', 'URL' => 'http://autoc-one.jp/news/rss/' );
+		} elseif ( $genre == 'health' ) {
+			$rss_site[] = array( 'genre' => 'health', 'site' => 'HeatlTech', 'URL' => 'https://healthtechnews.jp/feed/' );
+			$rss_site[] = array( 'genre' => 'health', 'site' => 'マイナビ', 'URL' => 'http://feeds.journal.mycom.co.jp/rss/mycom/healthcare/mental' );
+			$rss_site[] = array( 'genre' => 'health', 'site' => '日経', 'URL' => 'http://techon.nikkeibp.co.jp/ndh/index.rdf' );
+			$rss_site[] = array( 'genre' => 'health', 'site' => 'ITmedia', 'URL' => 'http://headlines.yahoo.co.jp/rss/it_health-c_life.xml' );
 		} else {
 			$rss_site[] = array( 'genre' => 'music_band', 'site' => 'BARKS', 'URL' => 'http://rss.rssad.jp/rss/barks/barks_news_oversea.rdf' );
 			$rss_site[] = array( 'genre' => 'music_equip', 'site' => 'RandoM', 'URL' => 'http://rdm.ne.jp/feed/rss' );

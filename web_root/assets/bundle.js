@@ -546,6 +546,10 @@ var app = app || {};
 		urlRoot : '/api/get_rss.php?genre=it_yuru',
 		parse : function(response) { return response; }
 	});
+	app.NewsHealthModel = Backbone.Model.extend({
+		urlRoot : '/api/get_rss.php?genre=health',
+		parse : function(response) { return response; }
+	});
 	app.NewsCarModel = Backbone.Model.extend({
 		urlRoot : '/api/get_rss.php?genre=car',
 		parse : function(response) { return response; }
@@ -584,6 +588,11 @@ var app = app || {};
 		model : app.NewsItYuruModel,
 		parse : function(response) { return response; }
 	});
+	app.NewsHealthCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=health',
+		model : app.NewsHealthModel,
+		parse : function(response) { return response; }
+	});
 	app.NewsCarCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=car',
 		model : app.NewsCarModel,
@@ -593,14 +602,6 @@ var app = app || {};
 		url : '/api/get_rss.php?genre=game',
 		model : app.NewsGameModel,
 		parse : function(response) { return response; }
-	});
-})(app);
-
-var app = app || {};
-
-(function(app) {
-	app.TopView = Backbone.Marionette.ItemView.extend({
-		template: '#Top-template',
 	});
 })(app);
 
@@ -843,6 +844,49 @@ var app = app || {};
 
 (function(app) {
 	// News
+	app.NewsHealthItemView = Backbone.Marionette.ItemView.extend({
+		tagName : 'li',
+
+		template : '#rss-item-template',
+
+	});
+
+	app.NewsHealthCompositeView = Backbone.Marionette.CompositeView.extend({
+		template: '#NewsHealth-composite-template',
+
+		childView : app.NewsHealthItemView,
+
+		childViewContainer : 'ul',
+
+	});
+
+	app.NewsHealthLayoutView = Backbone.Marionette.LayoutView.extend({
+		template: '#NewsHealth-layout-template',
+
+		regions : {
+			listRegion : '#NewsHealth-lists',
+		},
+
+		onRender : function(){
+			var NewsHealthCollection = new app.NewsHealthCollection();
+			this.listenTo(NewsHealthCollection , 'reset', this.showList, this);
+			NewsHealthCollection.fetch({reset : true});
+		},
+
+		showList : function(NewsHealthCollection){
+			this.listRegion.show( new app.NewsHealthCompositeView({
+				collection : NewsHealthCollection
+			}));
+		},
+
+	});
+
+})(app);
+
+var app = app || {};
+
+(function(app) {
+	// News
 	app.NewsCarItemView = Backbone.Marionette.ItemView.extend({
 		tagName : 'li',
 
@@ -953,6 +997,7 @@ var app = app || {};
 		NewsItInfraLists : function() { this.nextView(app.NewsItInfraLayoutView); },
 		NewsItYuruLists : function() { this.nextView(app.NewsItYuruLayoutView); },
 		NewsItLinkLists : function() { this.nextView(app.NewsItLinkView); },
+		NewsHealthLists : function() { this.nextView(app.NewsHealthLayoutView); },
 		NewsCarLists : function() { this.nextView(app.NewsCarLayoutView); },
 		NewsGameLists : function() { this.nextView(app.NewsGameLayoutView); },
 		Prof : function() { this.nextView(app.ProfView); },
@@ -982,6 +1027,7 @@ var app = app || {};
 			'NewsItInfra'		: 'NewsItInfraLists',
 			'NewsItYuru'		: 'NewsItYuruLists',
 			'NewsItLink'		: 'NewsItLinkLists',
+			'NewsHealth'		: 'NewsHealthLists',
 			'NewsCar'			: 'NewsCarLists',
 			'NewsGame'			: 'NewsGameLists',
 			'Prof'				: 'Prof',
@@ -1046,7 +1092,8 @@ var news_ary = {
 	'#NewsItIt': [ 'News > Technology（全般/Business）', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan' ],
 	'#NewsItProgram': [ 'News > Technology（Program）', 'CodeZine' ],
 	'#NewsItInfra': [ 'News > Technology（Infra）', 'ITpro Cloud, クラウドWatch, Think IT' ],
-	'#NewsItYuru': [ 'News > Technology（ゆるネタ）', 'Gigazine, ネタりか, ASCII.jp' ],
+	'#NewsHealth': [ 'News > HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
+	'#NewsItYuru': [ 'News > ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
 	'#NewsCar': [ 'News > Car', 'Carview, オートックワン' ],
 	'#NewsGame': [ 'News > Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ]
 };

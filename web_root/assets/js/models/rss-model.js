@@ -21,6 +21,10 @@ var app = app || {};
 		urlRoot : '/api/get_rss.php?genre=it_yuru',
 		parse : function(response) { return response; }
 	});
+	app.NewsHealthModel = Backbone.Model.extend({
+		urlRoot : '/api/get_rss.php?genre=health',
+		parse : function(response) { return response; }
+	});
 	app.NewsCarModel = Backbone.Model.extend({
 		urlRoot : '/api/get_rss.php?genre=car',
 		parse : function(response) { return response; }

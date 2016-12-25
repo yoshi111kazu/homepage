@@ -10,6 +10,7 @@ var app = app || {};
 		NewsItInfraLists : function() { this.nextView(app.NewsItInfraLayoutView); },
 		NewsItYuruLists : function() { this.nextView(app.NewsItYuruLayoutView); },
 		NewsItLinkLists : function() { this.nextView(app.NewsItLinkView); },
+		NewsHealthLists : function() { this.nextView(app.NewsHealthLayoutView); },
 		NewsCarLists : function() { this.nextView(app.NewsCarLayoutView); },
 		NewsGameLists : function() { this.nextView(app.NewsGameLayoutView); },
 		Prof : function() { this.nextView(app.ProfView); },
