@@ -13,8 +13,7 @@ var app = app || {};
 		NewsHealthLists : function() { this.nextView(app.NewsHealthLayoutView); },
 		NewsCarLists : function() { this.nextView(app.NewsCarLayoutView); },
 		NewsGameLists : function() { this.nextView(app.NewsGameLayoutView); },
-		Prof : function() { this.nextView(app.ProfView); },
-		Blog : function() { this.nextView(app.BlogView); },
+		BlogLists : function() { this.nextView(app.BlogLayoutView); },
 
 		nextView : function(View, option) {
 			app.application.mainRegion.show(new View(option));

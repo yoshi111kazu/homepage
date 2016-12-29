@@ -3,8 +3,7 @@ var app = app || {};
 (function(app) {
 	// News
 	app.NewsMusicItemView = Backbone.Marionette.ItemView.extend({
-		tagName : 'li',
-
+		//tagName : 'li',
 		template : '#rss-item-template',
 
 	});
@@ -14,7 +13,7 @@ var app = app || {};
 
 		childView : app.NewsMusicItemView,
 
-		childViewContainer : 'ul',
+		childViewContainer : 'span',
 
 	});
 

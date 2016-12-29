@@ -41,4 +41,9 @@ var app = app || {};
 		model : app.NewsGameModel,
 		parse : function(response) { return response; }
 	});
+	app.BlogCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=blog',
+		model : app.BlogModel,
+		parse : function(response) { return response; }
+	});
 })(app);

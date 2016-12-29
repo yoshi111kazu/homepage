@@ -5,7 +5,7 @@ var app = app || {};
 		initialize : function(){ new app.MainRouter(); },
 		onStart : function(){ Backbone.history.start(); },
 		regions : {
-			mainRegion : '#main'
+			mainRegion : '#main_cont'
 		}
 
 	});

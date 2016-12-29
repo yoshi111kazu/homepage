@@ -33,4 +33,8 @@ var app = app || {};
 		urlRoot : '/api/get_rss.php?genre=game',
 		parse : function(response) { return response; }
 	});
+	app.BlogModel = Backbone.Model.extend({
+		urlRoot : '/api/get_rss.php?genre=blog',
+		parse : function(response) { return response; }
+	});
 })(app);

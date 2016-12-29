@@ -1,0 +1,20 @@
+#main-logo {
+    position: fixed;
+    top: 5px;
+    right: 10px;
+}
+
+#page-top {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+}
+#page-top a {
+    display: block;
+	opacity: 0.6;
+}
+#page-top a:hover {
+    text-decoration: none;
+	opacity: 0.6;
+}
+

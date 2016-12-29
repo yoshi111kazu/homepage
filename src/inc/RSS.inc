@@ -60,6 +60,8 @@ class ClsRSS {
 			$rss_site[] = array( 'genre' => 'health', 'site' => 'マイナビ', 'URL' => 'http://feeds.journal.mycom.co.jp/rss/mycom/healthcare/mental' );
 			$rss_site[] = array( 'genre' => 'health', 'site' => '日経', 'URL' => 'http://techon.nikkeibp.co.jp/ndh/index.rdf' );
 			$rss_site[] = array( 'genre' => 'health', 'site' => 'ITmedia', 'URL' => 'http://headlines.yahoo.co.jp/rss/it_health-c_life.xml' );
+		} elseif ( $genre == 'blog' ) {
+			$rss_site[] = array( 'genre' => 'blog', 'site' => 'MyBlog', 'URL' => 'https://blog.ishino.info/?feed=rss2' );
 		} else {
 			$rss_site[] = array( 'genre' => 'music_band', 'site' => 'BARKS', 'URL' => 'http://rss.rssad.jp/rss/barks/barks_news_oversea.rdf' );
 			$rss_site[] = array( 'genre' => 'music_equip', 'site' => 'RandoM', 'URL' => 'http://rdm.ne.jp/feed/rss' );
@@ -77,6 +79,7 @@ class ClsRSS {
 			if ( count( $rss_data ) > 0 ) {
 				$rss_cnt = 0;
 				foreach ( $rss_data as $key2 => $val2 ) {
+					//print_r( $val2 );
 					if ( $rss_cnt > $limit ) {
 						break;
 					}

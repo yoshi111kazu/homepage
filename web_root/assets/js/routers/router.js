@@ -18,8 +18,7 @@ var app = app || {};
 			'NewsHealth'		: 'NewsHealthLists',
 			'NewsCar'			: 'NewsCarLists',
 			'NewsGame'			: 'NewsGameLists',
-			'Prof'				: 'Prof',
-			'Blog'				: 'Blog'
+			'Blog'				: 'BlogLists'
 		},
 	});
 })(app);

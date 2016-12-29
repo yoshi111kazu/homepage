@@ -3,7 +3,7 @@ var app = app || {};
 (function(app) {
 	// News
 	app.NewsItItItemView = Backbone.Marionette.ItemView.extend({
-		tagName : 'li',
+		//tagName : 'li',
 
 		template : '#rss-item-template',
 
@@ -14,7 +14,7 @@ var app = app || {};
 
 		childView : app.NewsItItItemView,
 
-		childViewContainer : 'ul',
+		childViewContainer : 'span',
 
 	});
 

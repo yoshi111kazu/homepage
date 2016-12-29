@@ -16,7 +16,7 @@
 	$filepath = WEB_ROOT . 'api/data/';
 	$ClsRSS = new ClsRSS();
 
-	$genre = array( 'music', 'it_it', 'it_program', 'it_infra', 'it_yuru', 'game', 'car', 'health' );
+	$genre = array( 'music', 'it_it', 'it_program', 'it_infra', 'it_yuru', 'game', 'car', 'health', 'blog' );
 	foreach( $genre as $key => $val ) {
 		$assign_data = array();
 		$assign_data['merge_data'] = $ClsRSS->getFullRSS( $val, '20' );
