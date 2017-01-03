@@ -39,8 +39,4 @@ var app = app || {};
 
 	});
 
-	// Goods
-	app.NewsItItGoodsView = Backbone.Marionette.ItemView.extend({
-		template: '#NewsItIt-goods-template',
-	});
 })(app);

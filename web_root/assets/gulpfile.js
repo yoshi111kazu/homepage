@@ -95,6 +95,8 @@ gulp.task("js-merge-02", function() {
    './js/views/NewsItIt.js',
    './js/views/NewsItProgram.js',
    './js/views/NewsItInfra.js',
+   './js/views/NewsItPosting.js',
+   './js/views/NewsItCompany.js',
    './js/views/NewsItYuru.js',
    './js/views/NewsItLink.js',
    './js/views/NewsHealth.js',

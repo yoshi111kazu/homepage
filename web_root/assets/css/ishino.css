@@ -1,13 +1,13 @@
 #main-logo {
     position: fixed;
-    top: 5px;
-    right: 10px;
+    top: 0px;
+    right: 0px;
 }
 
 #page-top {
     position: fixed;
-    bottom: 0px;
-    right: 20px;
+    bottom: -40px;
+    right: 10px;
 }
 #page-top a {
     display: block;

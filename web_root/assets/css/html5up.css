@@ -2871,8 +2871,7 @@ button,
   letter-spacing: 0.075em;
   list-style: none;
   margin-bottom: 0;
-  padding: 0;
-  text-transform: uppercase; }
+  padding: 0; }
   #menu ul a, #menu ul span {
     border-bottom: 0;
     color: inherit;

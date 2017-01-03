@@ -1,41 +1,65 @@
 var app = app || {};
 
 (function(app) {
-	// News
-	app.NewsMusicItemView = Backbone.Marionette.ItemView.extend({
-		//tagName : 'li',
+	// Music
+	app.NewsMusicOverseaItemView = Backbone.Marionette.ItemView.extend({
 		template : '#rss-item-template',
-
 	});
 
-	app.NewsMusicCompositeView = Backbone.Marionette.CompositeView.extend({
-		template: '#NewsMusic-composite-template',
-
-		childView : app.NewsMusicItemView,
-
+	app.NewsMusicOverseaCompositeView = Backbone.Marionette.CompositeView.extend({
+		template: '#NewsMusicOversea-composite-template',
+		childView : app.NewsMusicOverseaItemView,
 		childViewContainer : 'span',
-
 	});
 
-	app.NewsMusicLayoutView = Backbone.Marionette.LayoutView.extend({
-		template: '#NewsMusic-layout-template',
+	app.NewsMusicOverseaLayoutView = Backbone.Marionette.LayoutView.extend({
+		template: '#NewsMusicOversea-layout-template',
 
 		regions : {
-			listRegion : '#NewsMusic-lists',
+			listRegion : '#NewsMusicOversea-lists',
 		},
 
 		onRender : function(){
-			var musicCollection = new app.NewsMusicCollection();
+			var musicCollection = new app.NewsMusicOverseaCollection();
 			this.listenTo(musicCollection , 'reset', this.showList, this);
 			musicCollection.fetch({reset : true});
 		},
 
 		showList : function(musicCollection){
-			this.listRegion.show( new app.NewsMusicCompositeView({
+			this.listRegion.show( new app.NewsMusicOverseaCompositeView({
 				collection : musicCollection
 			}));
 		},
+	});
 
+	app.NewsMusicItemItemView = Backbone.Marionette.ItemView.extend({
+		template : '#rss-item-template',
+	});
+
+	app.NewsMusicItemCompositeView = Backbone.Marionette.CompositeView.extend({
+		template: '#NewsMusicItem-composite-template',
+		childView : app.NewsMusicItemItemView,
+		childViewContainer : 'span',
+	});
+
+	app.NewsMusicItemLayoutView = Backbone.Marionette.LayoutView.extend({
+		template: '#NewsMusicItem-layout-template',
+
+		regions : {
+			listRegion : '#NewsMusicItem-lists',
+		},
+
+		onRender : function(){
+			var musicCollection = new app.NewsMusicItemCollection();
+			this.listenTo(musicCollection , 'reset', this.showList, this);
+			musicCollection.fetch({reset : true});
+		},
+
+		showList : function(musicCollection){
+			this.listRegion.show( new app.NewsMusicItemCompositeView({
+				collection : musicCollection
+			}));
+		},
 	});
 
 })(app);

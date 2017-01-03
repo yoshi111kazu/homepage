@@ -1,9 +1,14 @@
 var app = app || {};
 
 (function(app) {
-	app.NewsMusicCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=music',
-		model : app.NewsMusicModel,
+	app.NewsMusicOverseaCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=music_oversea',
+		model : app.NewsMusicOverseaModel,
+		parse : function(response) { return response; }
+	});
+	app.NewsMusicItemCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=music_item',
+		model : app.NewsMusicItemModel,
 		parse : function(response) { return response; }
 	});
 	app.NewsItItCollection = Backbone.Collection.extend({
@@ -19,6 +24,16 @@ var app = app || {};
 	app.NewsItInfraCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=it_infra',
 		model : app.NewsItInfraModel,
+		parse : function(response) { return response; }
+	});
+	app.NewsItPostingCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=it_posting',
+		model : app.NewsItPostingModel,
+		parse : function(response) { return response; }
+	});
+	app.NewsItCompanyCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=it_company',
+		model : app.NewsItCompanyModel,
 		parse : function(response) { return response; }
 	});
 	app.NewsItYuruCollection = Backbone.Collection.extend({

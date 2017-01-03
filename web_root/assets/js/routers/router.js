@@ -8,11 +8,14 @@ var app = app || {};
 		//ルーティング設定
 		appRoutes : {
 			//''					: 'Top',
-			''					: 'NewsMusicLists',
-			'NewsMusic'			: 'NewsMusicLists',
+			''					: 'NewsMusicOverseaLists',
+			'NewsMusicOversea'	: 'NewsMusicOverseaLists',
+			'NewsMusicItem'		: 'NewsMusicItemLists',
 			'NewsItIt'			: 'NewsItItLists',
 			'NewsItProgram'		: 'NewsItProgramLists',
 			'NewsItInfra'		: 'NewsItInfraLists',
+			'NewsItPosting'		: 'NewsItPostingLists',
+			'NewsItCompany'		: 'NewsItCompanyLists',
 			'NewsItYuru'		: 'NewsItYuruLists',
 			'NewsItLink'		: 'NewsItLinkLists',
 			'NewsHealth'		: 'NewsHealthLists',

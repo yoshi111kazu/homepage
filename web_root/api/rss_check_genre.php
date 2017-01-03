@@ -1,6 +1,6 @@
 <?
 /*****************************************************************************
- *  name        : put_rss_check.php?genre=xx
+ *  name        : rss_check_genre.php?genre=xx
  *  function    : 
  *
  ****************************************************************************/
@@ -13,7 +13,6 @@
 /********/
 /* main */
 /********/
-	$filepath = WEB_ROOT . 'api/data/';
 	$ClsRSS = new ClsRSS();
 
 	$genre = $_GET['genre'];

@@ -26,14 +26,17 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'#NewsMusic': [ 'News > Music', 'BARKS, RandoM' ],
-	'#NewsItIt': [ 'News > Technology（全般/Business）', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan' ],
-	'#NewsItProgram': [ 'News > Technology（Program）', 'CodeZine' ],
-	'#NewsItInfra': [ 'News > Technology（Infra）', 'ITpro Cloud, クラウドWatch, Think IT' ],
-	'#NewsHealth': [ 'News > HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
-	'#NewsItYuru': [ 'News > ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
-	'#NewsCar': [ 'News > Car', 'Carview, オートックワン' ],
-	'#NewsGame': [ 'News > Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ],
+	'#NewsMusicOversea': [ 'Music > Oversea', 'BARKS, RO69' ],
+	'#NewsMusicItem': [ 'Music > Item', 'RandoM, Supernice!' ],
+	'#NewsItIt': [ 'Tech > 一般・Business', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan' ],
+	'#NewsItProgram': [ 'Tech > プログラム', 'CodeZine' ],
+	'#NewsItInfra': [ 'Tech > インフラ', 'ITpro Cloud, クラウドWatch, Think IT' ],
+	'#NewsItPosting': [ 'Tech > はてぶ・Qiita', 'はてな, Qiita' ],
+	'#NewsItCompany': [ 'Tech > 企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE' ],
+	'#NewsHealth': [ 'HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
+	'#NewsCar': [ 'Car', 'Carview, オートックワン' ],
+	'#NewsGame': [ 'Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ],
+	'#NewsItYuru': [ 'ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
 	'#Blog': [ 'Blog', '' ]
 };
 
@@ -43,7 +46,7 @@ function locationHashChanged() {
 	var breadcrumb = '';
 	var rss = '';
 
-	if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsMusic'; }
+	if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsMusicOversea'; }
 	Object.keys(news_ary).forEach( function(key) {
 		if ( key == hash_val ) { val_flg = 1; }
 	}, news_ary );
