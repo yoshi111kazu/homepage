@@ -1110,18 +1110,11 @@ var app = app || {};
 		},
 
 	});
-})(app);
 
-var app = app || {};
-
-//router
-(function(app) {
 	app.MainRouter = Backbone.Marionette.AppRouter.extend({
-		//コントローラをインスタンス化
+
 		controller: new app.MainController(),
-		//ルーティング設定
 		appRoutes : {
-			//''					: 'Top',
 			''					: 'NewsMusicOverseaLists',
 			'NewsMusicOversea'	: 'NewsMusicOverseaLists',
 			'NewsMusicItem'		: 'NewsMusicItemLists',
@@ -1138,12 +1131,9 @@ var app = app || {};
 			'Blog'				: 'BlogLists'
 		},
 	});
-})(app);
 
-var app = app || {};
-
-(function(app) {
 	app.Application = Backbone.Marionette.Application.extend({
+
 		initialize : function(){ new app.MainRouter(); },
 		onStart : function(){ Backbone.history.start(); },
 		regions : {
