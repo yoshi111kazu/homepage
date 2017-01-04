@@ -71,7 +71,7 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'マイナビ', 'URL' => 'http://feeds.journal.mycom.co.jp/rss/mycom/healthcare/mental' );
 			$rss_site[] = array( 'site' => '日経', 'URL' => 'http://techon.nikkeibp.co.jp/ndh/index.rdf' );
 			$rss_site[] = array( 'site' => 'ITmedia', 'URL' => 'http://headlines.yahoo.co.jp/rss/it_health-c_life.xml' );
-		} elseif ( $genre == 'blog' ) {
+		} elseif ( $genre == 'blog' || $genre == 'blog_new' ) {
 			$rss_site[] = array( 'site' => 'yoshi111kazu', 'URL' => 'https://blog.ishino.info/?feed=rss2' );
 		} else {
 			$rss_site[] = array( 'site' => 'BARKS', 'URL' => 'http://rss.rssad.jp/rss/barks/barks_news_oversea.rdf' );
@@ -91,7 +91,7 @@ class ClsRSS {
 				$rss_cnt = 0;
 				foreach ( $rss_data as $key2 => $val2 ) {
 					//print_r( $val2 );
-					if ( $rss_cnt > $limit ) {
+					if ( $rss_cnt >= $limit ) {
 						break;
 					}
 					// Atom

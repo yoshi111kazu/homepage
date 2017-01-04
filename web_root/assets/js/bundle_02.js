@@ -522,18 +522,19 @@ this.listenTo(a,"all",function(){var d=c.toArray(arguments),e=d[0],f=this.normal
 var app = app || {};
 
 (function(app) {
-	app.NewsMusicOverseaModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=music_oversea', parse : function(response) { return response; } });
-	app.NewsMusicItemModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=music_item', parse : function(response) { return response; } });
-	app.NewsItItModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=it_it', parse : function(response) { return response; } });
-	app.NewsItProgramModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=it_program', parse : function(response) { return response; } });
-	app.NewsItInfraModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=it_infra', parse : function(response) { return response; } });
-	app.NewsItPostingModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=it_posting', parse : function(response) { return response; } });
-	app.NewsItCompanyModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=it_company', parse : function(response) { return response; } });
-	app.NewsItYuruModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=it_yuru', parse : function(response) { return response; } });
-	app.NewsHealthModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=health', parse : function(response) { return response; } });
-	app.NewsCarModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=car', parse : function(response) { return response; } });
-	app.NewsGameModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=game', parse : function(response) { return response; } });
-	app.BlogModel = Backbone.Model.extend({ urlRoot : '/api/get_rss.php?genre=blog', parse : function(response) { return response; } });
+	app.NewsMusicOverseaModel = Backbone.Model.extend({  });
+	app.NewsMusicItemModel = Backbone.Model.extend({ });
+	app.NewsItItModel = Backbone.Model.extend({ });
+	app.NewsItProgramModel = Backbone.Model.extend({ });
+	app.NewsItInfraModel = Backbone.Model.extend({ });
+	app.NewsItPostingModel = Backbone.Model.extend({ });
+	app.NewsItCompanyModel = Backbone.Model.extend({ });
+	app.NewsItYuruModel = Backbone.Model.extend({ });
+	app.NewsHealthModel = Backbone.Model.extend({ });
+	app.NewsCarModel = Backbone.Model.extend({ });
+	app.NewsGameModel = Backbone.Model.extend({ });
+	app.BlogModel = Backbone.Model.extend({ });
+	app.MyNewBlogModel = Backbone.Model.extend({ });
 })(app);
 
 var app = app || {};
@@ -597,6 +598,11 @@ var app = app || {};
 	app.BlogCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=blog',
 		model : app.BlogModel,
+		parse : function(response) { return response; }
+	});
+	app.MyNewBlogCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=blog_new',
+		model : app.MyNewBlogModel,
 		parse : function(response) { return response; }
 	});
 })(app);
@@ -1088,27 +1094,67 @@ var app = app || {};
 var app = app || {};
 
 (function(app) {
-	app.MainController = Backbone.Marionette.Controller.extend({
+	// News
+	app.MyNewBlogItemView = Backbone.Marionette.ItemView.extend({
+		//tagName : 'li',
+		template : '#MyNewBlog-item-template',
+	});
 
-		Top : function() { this.nextView(app.TopView); },
-		NewsMusicOverseaLists : function() { this.nextView(app.NewsMusicOverseaLayoutView); },
-		NewsMusicItemLists : function() { this.nextView(app.NewsMusicItemLayoutView); },
-		NewsItItLists : function() { this.nextView(app.NewsItItLayoutView); },
-		NewsItProgramLists : function() { this.nextView(app.NewsItProgramLayoutView); },
-		NewsItInfraLists : function() { this.nextView(app.NewsItInfraLayoutView); },
-		NewsItPostingLists : function() { this.nextView(app.NewsItPostingLayoutView); },
-		NewsItCompanyLists : function() { this.nextView(app.NewsItCompanyLayoutView); },
-		NewsItYuruLists : function() { this.nextView(app.NewsItYuruLayoutView); },
-		NewsItLinkLists : function() { this.nextView(app.NewsItLinkView); },
-		NewsHealthLists : function() { this.nextView(app.NewsHealthLayoutView); },
-		NewsCarLists : function() { this.nextView(app.NewsCarLayoutView); },
-		NewsGameLists : function() { this.nextView(app.NewsGameLayoutView); },
-		BlogLists : function() { this.nextView(app.BlogLayoutView); },
+	app.MyNewBlogCompositeView = Backbone.Marionette.CompositeView.extend({
+		template: '#MyNewBlog-composite-template',
 
-		nextView : function(View, option) {
-			app.application.mainRegion.show(new View(option));
+		childView : app.MyNewBlogItemView,
+
+		childViewContainer : 'ul',
+
+	});
+
+	app.MyNewBlogLayoutView = Backbone.Marionette.LayoutView.extend({
+		template: '#MyNewBlog-layout-template',
+
+		regions : {
+			listRegion : '#MyNewBlog-lists',
 		},
 
+		onRender : function(){
+			var MyNewBlogCollection = new app.MyNewBlogCollection();
+			this.listenTo(MyNewBlogCollection , 'reset', this.showList, this);
+			MyNewBlogCollection.fetch({reset : true});
+		},
+
+		showList : function(MyNewBlogCollection){
+			this.listRegion.show( new app.MyNewBlogCompositeView({
+				collection : MyNewBlogCollection
+			}));
+		},
+
+	});
+
+})(app);
+
+var app = app || {};
+
+(function(app) {
+	app.MainController = Backbone.Marionette.Controller.extend({
+
+		NewsMusicOverseaLists : function() { this.nextMainView(app.NewsMusicOverseaLayoutView); },
+		NewsMusicItemLists : function() { this.nextMainView(app.NewsMusicItemLayoutView); },
+		NewsItItLists : function() { this.nextMainView(app.NewsItItLayoutView); },
+		NewsItProgramLists : function() { this.nextMainView(app.NewsItProgramLayoutView); },
+		NewsItInfraLists : function() { this.nextMainView(app.NewsItInfraLayoutView); },
+		NewsItPostingLists : function() { this.nextMainView(app.NewsItPostingLayoutView); },
+		NewsItCompanyLists : function() { this.nextMainView(app.NewsItCompanyLayoutView); },
+		NewsItYuruLists : function() { this.nextMainView(app.NewsItYuruLayoutView); },
+		NewsItLinkLists : function() { this.nextMainView(app.NewsItLinkView); },
+		NewsHealthLists : function() { this.nextMainView(app.NewsHealthLayoutView); },
+		NewsCarLists : function() { this.nextMainView(app.NewsCarLayoutView); },
+		NewsGameLists : function() { this.nextMainView(app.NewsGameLayoutView); },
+		BlogLists : function() { this.nextMainView(app.BlogLayoutView); },
+
+		nextMainView : function(View, option) {
+			app.application.mainRegion.show(new View(option));
+			app.application.blogRegion.show(new app.MyNewBlogLayoutView);
+		},
 	});
 
 	app.MainRouter = Backbone.Marionette.AppRouter.extend({
@@ -1137,7 +1183,8 @@ var app = app || {};
 		initialize : function(){ new app.MainRouter(); },
 		onStart : function(){ Backbone.history.start(); },
 		regions : {
-			mainRegion : '#main_cont'
+			mainRegion : '#main_cont',
+			blogRegion : '#blog_cont'
 		}
 
 	});
@@ -1182,10 +1229,10 @@ var news_ary = {
 	'#NewsItInfra': [ 'Tech > インフラ', 'ITpro Cloud, クラウドWatch, Think IT' ],
 	'#NewsItPosting': [ 'Tech > はてぶ・Qiita', 'はてな, Qiita' ],
 	'#NewsItCompany': [ 'Tech > 企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE' ],
-	'#NewsHealth': [ 'HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
-	'#NewsCar': [ 'Car', 'Carview, オートックワン' ],
-	'#NewsGame': [ 'Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ],
-	'#NewsItYuru': [ 'ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
+	'#NewsHealth': [ 'Other > HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
+	'#NewsCar': [ 'Other > Car', 'Carview, オートックワン' ],
+	'#NewsGame': [ 'Other > Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ],
+	'#NewsItYuru': [ 'Other > ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
 	'#Blog': [ 'Blog', '' ]
 };
 

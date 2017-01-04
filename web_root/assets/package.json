@@ -20,6 +20,7 @@
     "gulp-cssmin": "~0.1.7",
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "~3.0.3",
+    "gulp-jshint": "^2.0.4",
     "gulp-minify-html": "~1.0.6",
     "gulp-rename": "~1.2.2",
     "gulp-sass": "^3.0.0",
@@ -28,6 +29,8 @@
     "imagemin-optipng": "~5.2.0",
     "imagemin-pngquant": "^5.0.0",
     "jquery": "1.11.3",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
     "json2": "~0.4.0",
     "run-sequence": "^1.2.2",
     "underscore": "^1.8.3"

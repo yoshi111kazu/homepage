@@ -99,17 +99,16 @@
 				</ul>
 			</nav>
 
-			<!-- Section -->
-			<section>
+			<!-- Menu -->
+			<nav id="menu">
 				<header class="major">
 					<h2><i class="fa fa-bookmark-o"></i>　Blog</h2>
 				</header>
+				<div id="blog_cont"></div>
 				<ul class="alt">
-					<li>最新記事</li>
-					<li>...　工事中</li>
-					<li align="right"><a href="https://blog.ishino.info/" class="button" target="_blank">MORE</a></li>
+					<li align="right"><a href="https://blog.ishino.info/" target="_blank">..More</a></li>
 				</ul>
-			</section>
+			</nav>
 
 			<!-- Menu -->
 			<nav id="menu">
@@ -150,7 +149,6 @@
 			<!-- Footer -->
 			<footer id="footer">
 				<p class="copyright">&copy; ishino.info. All rights reserved.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Design: HTML5 UP )</p>
-
 			</footer>
 
 		</div>
@@ -209,6 +207,13 @@
 	<!-- Blog -->
 	<script type="text/template" id="Blog-layout-template"><div id="Blog-lists"></div></script>
 	<script type="text/template" id="Blog-composite-template"><span></span></script>
+
+	<!-- MyNewBlog -->
+	<script type="text/template" id="MyNewBlog-layout-template"><div id="MyNewBlog-lists"></div></script>
+	<script type="text/template" id="MyNewBlog-composite-template"><ul></ul></script>
+	<script type="text/template" id="MyNewBlog-item-template">
+		<li><a href="<%- link %>" target="_blank">・<%- title %></a></li>
+	</script>
 
 <!-- Templates of Contents end -->
 

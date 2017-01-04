@@ -33,10 +33,10 @@ var news_ary = {
 	'#NewsItInfra': [ 'Tech > インフラ', 'ITpro Cloud, クラウドWatch, Think IT' ],
 	'#NewsItPosting': [ 'Tech > はてぶ・Qiita', 'はてな, Qiita' ],
 	'#NewsItCompany': [ 'Tech > 企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE' ],
-	'#NewsHealth': [ 'HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
-	'#NewsCar': [ 'Car', 'Carview, オートックワン' ],
-	'#NewsGame': [ 'Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ],
-	'#NewsItYuru': [ 'ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
+	'#NewsHealth': [ 'Other > HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
+	'#NewsCar': [ 'Other > Car', 'Carview, オートックワン' ],
+	'#NewsGame': [ 'Other > Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ],
+	'#NewsItYuru': [ 'Other > ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
 	'#Blog': [ 'Blog', '' ]
 };
 

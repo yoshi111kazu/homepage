@@ -3,25 +3,24 @@ var app = app || {};
 (function(app) {
 	app.MainController = Backbone.Marionette.Controller.extend({
 
-		Top : function() { this.nextView(app.TopView); },
-		NewsMusicOverseaLists : function() { this.nextView(app.NewsMusicOverseaLayoutView); },
-		NewsMusicItemLists : function() { this.nextView(app.NewsMusicItemLayoutView); },
-		NewsItItLists : function() { this.nextView(app.NewsItItLayoutView); },
-		NewsItProgramLists : function() { this.nextView(app.NewsItProgramLayoutView); },
-		NewsItInfraLists : function() { this.nextView(app.NewsItInfraLayoutView); },
-		NewsItPostingLists : function() { this.nextView(app.NewsItPostingLayoutView); },
-		NewsItCompanyLists : function() { this.nextView(app.NewsItCompanyLayoutView); },
-		NewsItYuruLists : function() { this.nextView(app.NewsItYuruLayoutView); },
-		NewsItLinkLists : function() { this.nextView(app.NewsItLinkView); },
-		NewsHealthLists : function() { this.nextView(app.NewsHealthLayoutView); },
-		NewsCarLists : function() { this.nextView(app.NewsCarLayoutView); },
-		NewsGameLists : function() { this.nextView(app.NewsGameLayoutView); },
-		BlogLists : function() { this.nextView(app.BlogLayoutView); },
+		NewsMusicOverseaLists : function() { this.nextMainView(app.NewsMusicOverseaLayoutView); },
+		NewsMusicItemLists : function() { this.nextMainView(app.NewsMusicItemLayoutView); },
+		NewsItItLists : function() { this.nextMainView(app.NewsItItLayoutView); },
+		NewsItProgramLists : function() { this.nextMainView(app.NewsItProgramLayoutView); },
+		NewsItInfraLists : function() { this.nextMainView(app.NewsItInfraLayoutView); },
+		NewsItPostingLists : function() { this.nextMainView(app.NewsItPostingLayoutView); },
+		NewsItCompanyLists : function() { this.nextMainView(app.NewsItCompanyLayoutView); },
+		NewsItYuruLists : function() { this.nextMainView(app.NewsItYuruLayoutView); },
+		NewsItLinkLists : function() { this.nextMainView(app.NewsItLinkView); },
+		NewsHealthLists : function() { this.nextMainView(app.NewsHealthLayoutView); },
+		NewsCarLists : function() { this.nextMainView(app.NewsCarLayoutView); },
+		NewsGameLists : function() { this.nextMainView(app.NewsGameLayoutView); },
+		BlogLists : function() { this.nextMainView(app.BlogLayoutView); },
 
-		nextView : function(View, option) {
+		nextMainView : function(View, option) {
 			app.application.mainRegion.show(new View(option));
+			app.application.blogRegion.show(new app.MyNewBlogLayoutView);
 		},
-
 	});
 
 	app.MainRouter = Backbone.Marionette.AppRouter.extend({
@@ -50,7 +49,8 @@ var app = app || {};
 		initialize : function(){ new app.MainRouter(); },
 		onStart : function(){ Backbone.history.start(); },
 		regions : {
-			mainRegion : '#main_cont'
+			mainRegion : '#main_cont',
+			blogRegion : '#blog_cont'
 		}
 
 	});

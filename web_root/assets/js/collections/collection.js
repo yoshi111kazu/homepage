@@ -61,4 +61,9 @@ var app = app || {};
 		model : app.BlogModel,
 		parse : function(response) { return response; }
 	});
+	app.MyNewBlogCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=blog_new',
+		model : app.MyNewBlogModel,
+		parse : function(response) { return response; }
+	});
 })(app);
