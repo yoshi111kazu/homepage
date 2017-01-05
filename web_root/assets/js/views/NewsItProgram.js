@@ -3,7 +3,7 @@ var app = app || {};
 (function(app) {
 	// News
 	app.NewsItProgramItemView = Backbone.Marionette.ItemView.extend({
-		tagName : 'li',
+		//tagName : 'li',
 
 		template : '#rss-item-template',
 
@@ -14,7 +14,7 @@ var app = app || {};
 
 		childView : app.NewsItProgramItemView,
 
-		childViewContainer : 'ul',
+		childViewContainer : 'span',
 
 	});
 
@@ -39,8 +39,4 @@ var app = app || {};
 
 	});
 
-	// Goods
-	app.NewsItProgramGoodsView = Backbone.Marionette.ItemView.extend({
-		template: '#NewsItProgram-goods-template',
-	});
 })(app);

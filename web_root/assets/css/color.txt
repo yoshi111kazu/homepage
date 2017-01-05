@@ -1,8 +1,0 @@
-navbar
-	font color
-		default: 8e8c84
-		hover: cccccc
-	background-color
-		default: 3e3f3a
-		hover: 393a35
-	
