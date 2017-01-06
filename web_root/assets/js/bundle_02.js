@@ -1232,7 +1232,7 @@ var news_ary = {
 	'#NewsHealth': [ 'Other > HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia' ],
 	'#NewsCar': [ 'Other > Car', 'Carview, オートックワン' ],
 	'#NewsGame': [ 'Other > Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net' ],
-	'#NewsItYuru': [ 'Other > ゆるネタ', 'Gigazine, ネタりか, ASCII.jp' ],
+	'#NewsItYuru': [ 'Other > ゆるネタ', 'Gigazine, ASCII' ],
 	'#Blog': [ 'Blog', '' ]
 };
 
