@@ -99,6 +99,7 @@ gulp.task("js-merge-02", function() {
    './node_modules/backbone.marionette/lib/backbone.marionette.min.js',
    './js/models/rss-model.js',
    './js/collections/collection.js',
+   './js/views/Top.js',
    './js/views/NewsMusic.js',
    './js/views/NewsItIt.js',
    './js/views/NewsItProgram.js',
@@ -111,6 +112,7 @@ gulp.task("js-merge-02", function() {
    './js/views/NewsCar.js',
    './js/views/NewsGame.js',
    './js/views/Blog.js',
+   './js/views/Profile.js',
    './js/views/MyNewBlog.js',
    './js/app.js',
    './js/ishino.js'

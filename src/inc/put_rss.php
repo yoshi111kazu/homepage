@@ -20,7 +20,7 @@
 	foreach( $genre as $key => $val ) {
 		$assign_data = array();
 		if ( $val == 'blog_new' ) {
-			$data_limit = 3;
+			$data_limit = 5;
 		} else {
 			$data_limit = 20;
 		}

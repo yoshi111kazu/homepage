@@ -3,6 +3,7 @@ var app = app || {};
 (function(app) {
 	app.MainController = Backbone.Marionette.Controller.extend({
 
+		TopLists : function() { this.nextMainView(app.TopItemView); },
 		NewsMusicOverseaLists : function() { this.nextMainView(app.NewsMusicOverseaLayoutView); },
 		NewsMusicItemLists : function() { this.nextMainView(app.NewsMusicItemLayoutView); },
 		NewsItItLists : function() { this.nextMainView(app.NewsItItLayoutView); },
@@ -15,6 +16,7 @@ var app = app || {};
 		NewsHealthLists : function() { this.nextMainView(app.NewsHealthLayoutView); },
 		NewsCarLists : function() { this.nextMainView(app.NewsCarLayoutView); },
 		NewsGameLists : function() { this.nextMainView(app.NewsGameLayoutView); },
+		ProfileLists : function() { this.nextMainView(app.ProfileItemView); },
 		BlogLists : function() { this.nextMainView(app.BlogLayoutView); },
 
 		nextMainView : function(View, option) {
@@ -27,6 +29,7 @@ var app = app || {};
 
 		controller: new app.MainController(),
 		appRoutes : {
+			'Top'				: 'TopLists',
 			''					: 'NewsMusicOverseaLists',
 			'NewsMusicOversea'	: 'NewsMusicOverseaLists',
 			'NewsMusicItem'		: 'NewsMusicItemLists',
@@ -40,6 +43,7 @@ var app = app || {};
 			'NewsHealth'		: 'NewsHealthLists',
 			'NewsCar'			: 'NewsCarLists',
 			'NewsGame'			: 'NewsGameLists',
+			'Profile'			: 'ProfileLists',
 			'Blog'				: 'BlogLists'
 		},
 	});
