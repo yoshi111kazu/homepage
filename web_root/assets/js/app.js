@@ -17,7 +17,7 @@ var app = app || {};
 		NewsCarLists : function() { this.nextMainView(app.NewsCarLayoutView); },
 		NewsGameLists : function() { this.nextMainView(app.NewsGameLayoutView); },
 		ProfileLists : function() { this.nextMainView(app.ProfileItemView); },
-		BlogLists : function() { this.nextMainView(app.BlogLayoutView); },
+		BlogLists : function() { this.nextMainView(app.BlogItemView); },
 
 		nextMainView : function(View, option) {
 			app.application.mainRegion.show(new View(option));

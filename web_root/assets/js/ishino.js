@@ -66,5 +66,9 @@ function locationHashChanged() {
 	// Goto Top
 	$('body,html').animate({ scrollTop: 0 }, 500);
 
+	if ( hash_val == '#Blog' ) {
+		//$('#sidebar a.toggle').click();
+	}
+
 }
 

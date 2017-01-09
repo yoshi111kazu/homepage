@@ -533,7 +533,6 @@ var app = app || {};
 	app.NewsHealthModel = Backbone.Model.extend({ });
 	app.NewsCarModel = Backbone.Model.extend({ });
 	app.NewsGameModel = Backbone.Model.extend({ });
-	app.BlogModel = Backbone.Model.extend({ });
 	app.MyNewBlogModel = Backbone.Model.extend({ });
 })(app);
 
@@ -593,11 +592,6 @@ var app = app || {};
 	app.NewsGameCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=game',
 		model : app.NewsGameModel,
-		parse : function(response) { return response; }
-	});
-	app.BlogCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=blog',
-		model : app.BlogModel,
 		parse : function(response) { return response; }
 	});
 	app.MyNewBlogCollection = Backbone.Collection.extend({
@@ -1059,44 +1053,9 @@ var app = app || {};
 var app = app || {};
 
 (function(app) {
-	// News
 	app.BlogItemView = Backbone.Marionette.ItemView.extend({
-		//tagName : 'li',
-
-		template : '#rss-item-template',
-
+		template: '#Blog-template',
 	});
-
-	app.BlogCompositeView = Backbone.Marionette.CompositeView.extend({
-		template: '#Blog-composite-template',
-
-		childView : app.BlogItemView,
-
-		childViewContainer : 'span',
-
-	});
-
-	app.BlogLayoutView = Backbone.Marionette.LayoutView.extend({
-		template: '#Blog-layout-template',
-
-		regions : {
-			listRegion : '#Blog-lists',
-		},
-
-		onRender : function(){
-			var BlogCollection = new app.BlogCollection();
-			this.listenTo(BlogCollection , 'reset', this.showList, this);
-			BlogCollection.fetch({reset : true});
-		},
-
-		showList : function(BlogCollection){
-			this.listRegion.show( new app.BlogCompositeView({
-				collection : BlogCollection
-			}));
-		},
-
-	});
-
 })(app);
 
 var app = app || {};
@@ -1167,7 +1126,7 @@ var app = app || {};
 		NewsCarLists : function() { this.nextMainView(app.NewsCarLayoutView); },
 		NewsGameLists : function() { this.nextMainView(app.NewsGameLayoutView); },
 		ProfileLists : function() { this.nextMainView(app.ProfileItemView); },
-		BlogLists : function() { this.nextMainView(app.BlogLayoutView); },
+		BlogLists : function() { this.nextMainView(app.BlogItemView); },
 
 		nextMainView : function(View, option) {
 			app.application.mainRegion.show(new View(option));
@@ -1281,6 +1240,10 @@ function locationHashChanged() {
 
 	// Goto Top
 	$('body,html').animate({ scrollTop: 0 }, 500);
+
+	if ( hash_val == '#Blog' ) {
+		//$('#sidebar a.toggle').click();
+	}
 
 }
 

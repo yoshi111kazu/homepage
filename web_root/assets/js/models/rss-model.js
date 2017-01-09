@@ -12,6 +12,5 @@ var app = app || {};
 	app.NewsHealthModel = Backbone.Model.extend({ });
 	app.NewsCarModel = Backbone.Model.extend({ });
 	app.NewsGameModel = Backbone.Model.extend({ });
-	app.BlogModel = Backbone.Model.extend({ });
 	app.MyNewBlogModel = Backbone.Model.extend({ });
 })(app);
