@@ -12,7 +12,7 @@ var app = app || {};
 
 		childView : app.MyNewBlogItemView,
 
-		childViewContainer : 'ul',
+		childViewContainer : 'span',
 
 	});
 

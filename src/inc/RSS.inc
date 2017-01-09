@@ -56,7 +56,7 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'LINE', 'URL' => 'http://developers.linecorp.com/blog/ja/?feed=rss2', 'no_desc' => true );
 		} elseif ( $genre == 'it_yuru' ) {
 			$rss_site[] = array( 'site' => 'Gigazine', 'URL' => 'http://feed.rssad.jp/rss/gigazine/rss_2.0' );
-			$rss_site[] = array( 'site' => 'ネタりか', 'URL' => 'http://netallica.yahoo.co.jp/rss/top' );
+			//$rss_site[] = array( 'site' => 'ネタりか', 'URL' => 'http://netallica.yahoo.co.jp/rss/top' );
 			$rss_site[] = array( 'site' => 'ASCII.jp', 'URL' => 'http://rss.rssad.jp/rss/ascii/rss.xml' );
 		} elseif ( $genre == 'game' ) {
 			$rss_site[] = array( 'site' => 'SocailGameInfo', 'URL' => 'http://gamebiz.jp/?feed=rss' );
