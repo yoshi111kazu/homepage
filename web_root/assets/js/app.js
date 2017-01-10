@@ -21,7 +21,7 @@ var app = app || {};
 
 		nextMainView : function(View, option) {
 			app.application.mainRegion.show(new View(option));
-			app.application.blogRegion.show(new app.MyNewBlogLayoutView);
+			//app.application.blogRegion.show(new app.MyNewBlogLayoutView);
 		},
 	});
 
@@ -53,8 +53,8 @@ var app = app || {};
 		initialize : function(){ new app.MainRouter(); },
 		onStart : function(){ Backbone.history.start(); },
 		regions : {
-			mainRegion : '#main_cont',
-			blogRegion : '#blog_cont'
+			mainRegion : '#main_cont'
+			//blogRegion : '#blog_cont'
 		}
 
 	});

@@ -1130,7 +1130,7 @@ var app = app || {};
 
 		nextMainView : function(View, option) {
 			app.application.mainRegion.show(new View(option));
-			app.application.blogRegion.show(new app.MyNewBlogLayoutView);
+			//app.application.blogRegion.show(new app.MyNewBlogLayoutView);
 		},
 	});
 
@@ -1162,8 +1162,8 @@ var app = app || {};
 		initialize : function(){ new app.MainRouter(); },
 		onStart : function(){ Backbone.history.start(); },
 		regions : {
-			mainRegion : '#main_cont',
-			blogRegion : '#blog_cont'
+			mainRegion : '#main_cont'
+			//blogRegion : '#blog_cont'
 		}
 
 	});
@@ -1201,19 +1201,19 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'#NewsMusicOversea': [ 'Music > Oversea', 'BARKS, RO69', 'rss' ],
-	'#NewsMusicItem': [ 'Music > Item', 'RandoM, Supernice!', 'rss' ],
-	'#NewsItIt': [ 'Tech > 一般・Business', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
-	'#NewsItProgram': [ 'Tech > プログラム', 'CodeZine', 'rss' ],
-	'#NewsItInfra': [ 'Tech > インフラ', 'ITpro Cloud, クラウドWatch, Think IT', 'rss' ],
-	'#NewsItPosting': [ 'Tech > はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
-	'#NewsItCompany': [ 'Tech > 企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE', 'rss' ],
-	'#NewsHealth': [ 'Other > HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia', 'rss' ],
-	'#NewsCar': [ 'Other > Car', 'Carview, オートックワン', 'rss' ],
-	'#NewsGame': [ 'Other > Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net', 'rss' ],
-	'#NewsItYuru': [ 'Other > ゆるネタ', 'Gigazine, ASCII', 'rss' ],
-	'#Profile': [ "Profile", '', '' ],
-	'#Blog': [ 'Blog', '', '' ]
+	'#NewsMusicOversea': [ '海外ニュース', 'BARKS, RO69', 'rss' ],
+	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
+	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
+	'#NewsItProgram': [ 'プログラム', 'CodeZine', 'rss' ],
+	'#NewsItInfra': [ 'インフラ', 'ITpro Cloud, クラウドWatch, Think IT', 'rss' ],
+	'#NewsItPosting': [ 'はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
+	'#NewsItCompany': [ '企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE', 'rss' ],
+	'#NewsHealth': [ 'ヘルスケア', 'HeatlTech, マイナビ, 日経, ITmedia', 'rss' ],
+	'#NewsCar': [ 'Car', 'Carview, オートックワン', 'rss' ],
+	'#NewsGame': [ 'GAME', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net', 'rss' ],
+	'#NewsItYuru': [ 'ゆるネタ', 'Gigazine, ASCII', 'rss' ],
+	'#Profile': [ '', '', '' ],
+	'#Blog': [ '', '', '' ]
 };
 
 function locationHashChanged() {
@@ -1228,7 +1228,7 @@ function locationHashChanged() {
 		if ( key == hash_val ) {
 			str_01 = news_ary[hash_val][0];
 			if ( news_ary[hash_val][2] == 'rss' ) {
-				str_02 = '<i class="fa fa-rss" aria-hidden="true"></i>&nbsp;&nbsp;' + news_ary[hash_val][1];
+				str_02 = '<i class="icon-rss"></i>&nbsp;' + news_ary[hash_val][1];
 			} else {
 				str_02 = news_ary[hash_val][1];
 			}
@@ -1239,11 +1239,6 @@ function locationHashChanged() {
 	}, news_ary );
 
 	// Goto Top
-	$('body,html').animate({ scrollTop: 0 }, 500);
-
-	if ( hash_val == '#Blog' ) {
-		//$('#sidebar a.toggle').click();
-	}
-
+	//$('body,html').animate({ scrollTop: 0 }, 500);
 }
 
