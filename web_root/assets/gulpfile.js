@@ -107,6 +107,7 @@ gulp.task("js-merge-02", function() {
    './js/models/rss-model.js',
    './js/collections/collection.js',
    './js/views/Top.js',
+   './js/views/NewsToday.js',
    './js/views/NewsMusic.js',
    './js/views/NewsItIt.js',
    './js/views/NewsItProgram.js',

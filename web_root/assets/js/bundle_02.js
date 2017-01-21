@@ -522,6 +522,7 @@ this.listenTo(a,"all",function(){var d=c.toArray(arguments),e=d[0],f=this.normal
 var app = app || {};
 
 (function(app) {
+	app.NewsTodayModel = Backbone.Model.extend({  });
 	app.NewsMusicOverseaModel = Backbone.Model.extend({  });
 	app.NewsMusicItemModel = Backbone.Model.extend({ });
 	app.NewsItItModel = Backbone.Model.extend({ });
@@ -539,6 +540,11 @@ var app = app || {};
 var app = app || {};
 
 (function(app) {
+	app.NewsTodayCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=today',
+		model : app.NewsTodayModel,
+		parse : function(response) { return response; }
+	});
 	app.NewsMusicOverseaCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=music_oversea',
 		model : app.NewsMusicOverseaModel,
@@ -607,6 +613,49 @@ var app = app || {};
 	app.TopItemView = Backbone.Marionette.ItemView.extend({
 		template: '#Top-template',
 	});
+})(app);
+
+var app = app || {};
+
+(function(app) {
+	// News
+	app.NewsTodayItemView = Backbone.Marionette.ItemView.extend({
+		//tagName : 'li',
+
+		template : '#rss-item-template',
+
+	});
+
+	app.NewsTodayCompositeView = Backbone.Marionette.CompositeView.extend({
+		template: '#NewsToday-composite-template',
+
+		childView : app.NewsTodayItemView,
+
+		childViewContainer : 'span',
+
+	});
+
+	app.NewsTodayLayoutView = Backbone.Marionette.LayoutView.extend({
+		template: '#NewsToday-layout-template',
+
+		regions : {
+			listRegion : '#NewsToday-lists',
+		},
+
+		onRender : function(){
+			var NewsTodayCollection = new app.NewsTodayCollection();
+			this.listenTo(NewsTodayCollection , 'reset', this.showList, this);
+			NewsTodayCollection.fetch({reset : true});
+		},
+
+		showList : function(NewsTodayCollection){
+			this.listRegion.show( new app.NewsTodayCompositeView({
+				collection : NewsTodayCollection
+			}));
+		},
+
+	});
+
 })(app);
 
 var app = app || {};
@@ -1113,6 +1162,7 @@ var app = app || {};
 	app.MainController = Backbone.Marionette.Controller.extend({
 
 		TopLists : function() { this.nextMainView(app.TopItemView); },
+		NewsTodayLists : function() { this.nextMainView(app.NewsTodayLayoutView); },
 		NewsMusicOverseaLists : function() { this.nextMainView(app.NewsMusicOverseaLayoutView); },
 		NewsMusicItemLists : function() { this.nextMainView(app.NewsMusicItemLayoutView); },
 		NewsItItLists : function() { this.nextMainView(app.NewsItItLayoutView); },
@@ -1139,7 +1189,8 @@ var app = app || {};
 		controller: new app.MainController(),
 		appRoutes : {
 			'Top'				: 'TopLists',
-			''					: 'NewsMusicOverseaLists',
+			''					: 'NewsTodayLists',
+			'NewsToday'			: 'NewsTodayLists',
 			'NewsMusicOversea'	: 'NewsMusicOverseaLists',
 			'NewsMusicItem'		: 'NewsMusicItemLists',
 			'NewsItIt'			: 'NewsItItLists',
@@ -1201,7 +1252,8 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'#NewsMusicOversea': [ '海外ニュース', 'BARKS, RO69', 'rss' ],
+	'#NewsToday': [ '最新(全ジャンル)', '', '' ],
+	'#NewsMusicOversea': [ '洋楽ニュース', 'BARKS, RO69', 'rss' ],
 	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
 	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
 	'#NewsItProgram': [ 'プログラム', 'CodeZine', 'rss' ],
@@ -1222,7 +1274,7 @@ function locationHashChanged() {
 	var str_01 = '';
 	var str_02 = '';
 
-	if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsMusicOversea'; }
+	if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsToday'; }
 
 	Object.keys(news_ary).forEach( function(key) {
 		if ( key == hash_val ) {
@@ -1239,6 +1291,9 @@ function locationHashChanged() {
 	}, news_ary );
 
 	// Goto Top
-	//$('body,html').animate({ scrollTop: 0 }, 500);
+	$('html, body').animate({
+		scrollTop: $('html').offset().top
+	}, 500, 'easeInOutExpo');
+
 }
 

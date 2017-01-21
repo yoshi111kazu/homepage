@@ -7,7 +7,7 @@ $grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
-$brand-primary: #cabcab !default;
+$brand-primary: #927e65 !default;
 $brand-secondary: #a9974e !default; 
 
 $brand-white: #fff;
@@ -1350,6 +1350,7 @@ blockquote {
 #NewsHealth-lists,
 #NewsCar-lists,
 #NewsGame-lists,
+#NewsToday-lists,
 #NewsMusicItem-lists,
 #NewsMusicOversea-lists {
 	@include margin-15;

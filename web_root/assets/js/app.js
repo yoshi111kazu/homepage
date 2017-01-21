@@ -4,6 +4,7 @@ var app = app || {};
 	app.MainController = Backbone.Marionette.Controller.extend({
 
 		TopLists : function() { this.nextMainView(app.TopItemView); },
+		NewsTodayLists : function() { this.nextMainView(app.NewsTodayLayoutView); },
 		NewsMusicOverseaLists : function() { this.nextMainView(app.NewsMusicOverseaLayoutView); },
 		NewsMusicItemLists : function() { this.nextMainView(app.NewsMusicItemLayoutView); },
 		NewsItItLists : function() { this.nextMainView(app.NewsItItLayoutView); },
@@ -30,7 +31,8 @@ var app = app || {};
 		controller: new app.MainController(),
 		appRoutes : {
 			'Top'				: 'TopLists',
-			''					: 'NewsMusicOverseaLists',
+			''					: 'NewsTodayLists',
+			'NewsToday'			: 'NewsTodayLists',
 			'NewsMusicOversea'	: 'NewsMusicOverseaLists',
 			'NewsMusicItem'		: 'NewsMusicItemLists',
 			'NewsItIt'			: 'NewsItItLists',

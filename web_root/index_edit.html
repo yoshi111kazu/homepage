@@ -34,10 +34,12 @@
 			</div>
 			<div class="fh5co-top-menu menu-1 text-center">
 				<ul>
+					<li class="visible-xs"><a href="#Profile"><img src="assets/image/_Mohi_blackface_whitehead_525.png" alt="logo" width="40"></a></li>
+					<li class="visible-xs">&nbsp;</li>
 					<li class="has-dropdown">
 						<a>Music</a>
 						<ul class="dropdown">
-							<li><a href="#NewsMusicOversea">海外ニュース</a></li>
+							<li><a href="#NewsMusicOversea">洋楽ニュース</a></li>
 							<li><a href="#NewsMusicItem">機材・アイテム</a></li>
 						</ul>
 					</li>
@@ -60,7 +62,7 @@
 						</ul>
 					</li>
 					<li><a href="#Blog">Blog</a></li>
-					<li><a href="#Profile">About</a></li>
+					<li><a href="#Profile">Profile</a></li>
 				</ul>
 			</div>
 			<div class="fh5co-top-social menu-1 text-right">
@@ -94,6 +96,10 @@
 <!-- Templates of Contents start -->
 	<!-- Top -->
 	<script type="text/template" id="Top-template"></script>
+
+	<!-- NewsToday -->
+	<script type="text/template" id="NewsToday-layout-template"><div id="NewsToday-lists"></div></script>
+	<script type="text/template" id="NewsToday-composite-template"><span></span></script>
 
 	<!-- NewsMusic -->
 	<script type="text/template" id="NewsMusicOversea-layout-template"><div id="NewsMusicOversea-lists"></div></script>
@@ -164,32 +170,34 @@
 		<br>
 		<div id="my-profile">
 			<ul class="fh5co-social-icons">
-				<li><img src="assets/image/_kao_circle_250.png" alt="profile" style="width:60px" /></li>
-				<li>&nbsp;　&nbsp;　&nbsp;　&nbsp;</li>
-				<li><a href="https://www.facebook.com/yoshitomo.ishino" target="_blank"><i class="icon-facebook"></i></a></li>
-				<li><a href="https://twitter.com/yoshi111kazu" target="_blank"><i class="icon-twitter"></i></a></li>
-				<li><a href="https://www.linkedin.com/in/%E8%89%AF%E6%9C%8B-%E7%9F%B3%E9%87%8E-bb7a69b2" target="_blank"><i class="icon-linkedin"></i></a></li>
-				<li><a href="https://www.wantedly.com/users/17917668" target="_blank"><strong>W</strong></a></li>
+				<li><img src="assets/image/_kao_circle_250.png" alt="profile" style="width:60px" /><br><sup>yoshi111kazu</sup></li>
+				<li>
+					<ul>
+						<li><a href="https://www.facebook.com/yoshitomo.ishino" target="_blank"><i class="icon-facebook"></i></a></li>
+						<!--<li><a href="https://twitter.com/yoshi111kazu" target="_blank"><i class="icon-twitter"></i></a></li>-->
+						<li><a href="https://www.linkedin.com/in/%E8%89%AF%E6%9C%8B-%E7%9F%B3%E9%87%8E-bb7a69b2" target="_blank"><i class="icon-linkedin"></i></a></li>
+						<li><a href="https://www.wantedly.com/users/17917668" target="_blank"><strong>W</strong></a></li>
+					</ul>
+					<ul>
+						<li><h5><a href="#Blog">[&nbsp;Blog&nbsp;]</a></h5></li>
+					</ul>
+				</li>
 			</ul>
-			<sup>yoshi111kazu</sup>
 		</div>
-
 		<hr>
 		<div id="my-history">
 		<dl>
-			<dt><h5><a href="#Blog">[&nbsp;Blog&nbsp;]</a></h5></dt>
-				<br>
-			<dt><h4>2017</h4></dt>
-				<br>
-			<dt><h4>2016</h4></dt>
+			<dt><h5>2016</h5></dt>
+				<dd><ul><li><a href="https://v3.ishino.info/" target="_blank">3代目ホームページ（View変更: HTML5UP）</a></li></ul></dd>
 				<dd><ul><li><a href="http://gamebiz.jp/?p=157129" target="_blank">【インタビュー】「つくり手が中心となって働ける会社にしたい」サイバード社が取組むエンジニア組織作りとは（Social Game Info）</a></li></ul></dd>
 				<dd><ul><li><a href="https://blog.ishino.info/?p=5" target="_blank">【イベント】IVS CTO Night & Day 2016 Spring 初参加</a></li></ul></dd>
-				<dd><ul><li><a href="https://v2.ishino.info/" target="_blank">2代目ホームページ（SPA化 Backbone,Bootstrap）</a></li></ul></dd>
+				<dd><ul><li><a href="https://v2.ishino.info/" target="_blank">2代目ホームページ（SPA化: Backbone,Marionette / View: Bootstrap）</a></li></ul></dd>
+				<dd><ul><li><a href="https://d-cube.connpass.com/event/25550/" target="_blank">【イベント】大手ソシャゲデベロッパーが明かす「躍進の裏側」</a></li></ul></dd>
 				<br>
-			<dt><h4>2014</h4></dt>
+			<dt><h5>2014</h5></dt>
 				<dd><ul><li><a href="https://cloud.freebit.com/cloud/case/marvelous.html" target="_blank">【インタビュー】ブラウザ三国志のインフラ移設（フリービットクラウド）</a></li></ul></dd>
 				<br>
-			<dt><h4>〜2011</h4></dt>
+			<dt><h5>〜2011</h5></dt>
 				<dd><ul><li><a href="https://v1.ishino.info/" target="_blank">初代ホームページ（All PHP Page）</a></li></ul></dd>
 				<dd><ul><li><a href="https://v1.ishino.info/wiki.html" target="_blank">技術メモ（PukiWiki）</a></li></ul></dd>
 		</dl>
