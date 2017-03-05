@@ -522,6 +522,7 @@ this.listenTo(a,"all",function(){var d=c.toArray(arguments),e=d[0],f=this.normal
 var app = app || {};
 
 (function(app) {
+	app.NewsTodayModel = Backbone.Model.extend({  });
 	app.NewsMusicOverseaModel = Backbone.Model.extend({  });
 	app.NewsMusicItemModel = Backbone.Model.extend({ });
 	app.NewsItItModel = Backbone.Model.extend({ });
@@ -539,6 +540,11 @@ var app = app || {};
 var app = app || {};
 
 (function(app) {
+	app.NewsTodayCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=today',
+		model : app.NewsTodayModel,
+		parse : function(response) { return response; }
+	});
 	app.NewsMusicOverseaCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=music_oversea',
 		model : app.NewsMusicOverseaModel,
@@ -607,6 +613,49 @@ var app = app || {};
 	app.TopItemView = Backbone.Marionette.ItemView.extend({
 		template: '#Top-template',
 	});
+})(app);
+
+var app = app || {};
+
+(function(app) {
+	// News
+	app.NewsTodayItemView = Backbone.Marionette.ItemView.extend({
+		//tagName : 'li',
+
+		template : '#rss-item-template',
+
+	});
+
+	app.NewsTodayCompositeView = Backbone.Marionette.CompositeView.extend({
+		template: '#NewsToday-composite-template',
+
+		childView : app.NewsTodayItemView,
+
+		childViewContainer : 'span',
+
+	});
+
+	app.NewsTodayLayoutView = Backbone.Marionette.LayoutView.extend({
+		template: '#NewsToday-layout-template',
+
+		regions : {
+			listRegion : '#NewsToday-lists',
+		},
+
+		onRender : function(){
+			var NewsTodayCollection = new app.NewsTodayCollection();
+			this.listenTo(NewsTodayCollection , 'reset', this.showList, this);
+			NewsTodayCollection.fetch({reset : true});
+		},
+
+		showList : function(NewsTodayCollection){
+			this.listRegion.show( new app.NewsTodayCompositeView({
+				collection : NewsTodayCollection
+			}));
+		},
+
+	});
+
 })(app);
 
 var app = app || {};
@@ -1113,6 +1162,7 @@ var app = app || {};
 	app.MainController = Backbone.Marionette.Controller.extend({
 
 		TopLists : function() { this.nextMainView(app.TopItemView); },
+		NewsTodayLists : function() { this.nextMainView(app.NewsTodayLayoutView); },
 		NewsMusicOverseaLists : function() { this.nextMainView(app.NewsMusicOverseaLayoutView); },
 		NewsMusicItemLists : function() { this.nextMainView(app.NewsMusicItemLayoutView); },
 		NewsItItLists : function() { this.nextMainView(app.NewsItItLayoutView); },
@@ -1130,7 +1180,7 @@ var app = app || {};
 
 		nextMainView : function(View, option) {
 			app.application.mainRegion.show(new View(option));
-			app.application.blogRegion.show(new app.MyNewBlogLayoutView);
+			//app.application.blogRegion.show(new app.MyNewBlogLayoutView);
 		},
 	});
 
@@ -1139,7 +1189,8 @@ var app = app || {};
 		controller: new app.MainController(),
 		appRoutes : {
 			'Top'				: 'TopLists',
-			''					: 'NewsMusicOverseaLists',
+			''					: 'NewsTodayLists',
+			'NewsToday'			: 'NewsTodayLists',
 			'NewsMusicOversea'	: 'NewsMusicOverseaLists',
 			'NewsMusicItem'		: 'NewsMusicItemLists',
 			'NewsItIt'			: 'NewsItItLists',
@@ -1162,8 +1213,8 @@ var app = app || {};
 		initialize : function(){ new app.MainRouter(); },
 		onStart : function(){ Backbone.history.start(); },
 		regions : {
-			mainRegion : '#main_cont',
-			blogRegion : '#blog_cont'
+			mainRegion : '#main_cont'
+			//blogRegion : '#blog_cont'
 		}
 
 	});
@@ -1201,19 +1252,20 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'#NewsMusicOversea': [ 'Music > Oversea', 'BARKS, RO69', 'rss' ],
-	'#NewsMusicItem': [ 'Music > Item', 'RandoM, Supernice!', 'rss' ],
-	'#NewsItIt': [ 'Tech > 一般・Business', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
-	'#NewsItProgram': [ 'Tech > プログラム', 'CodeZine', 'rss' ],
-	'#NewsItInfra': [ 'Tech > インフラ', 'ITpro Cloud, クラウドWatch, Think IT', 'rss' ],
-	'#NewsItPosting': [ 'Tech > はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
-	'#NewsItCompany': [ 'Tech > 企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE', 'rss' ],
-	'#NewsHealth': [ 'Other > HealthCare', 'HeatlTech, マイナビ, 日経, ITmedia', 'rss' ],
-	'#NewsCar': [ 'Other > Car', 'Carview, オートックワン', 'rss' ],
-	'#NewsGame': [ 'Other > Game', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net', 'rss' ],
-	'#NewsItYuru': [ 'Other > ゆるネタ', 'Gigazine, ASCII', 'rss' ],
-	'#Profile': [ "Profile", '', '' ],
-	'#Blog': [ 'Blog', '', '' ]
+	'#NewsToday': [ '最新(全ジャンル)', '', '' ],
+	'#NewsMusicOversea': [ '洋楽ニュース', 'BARKS, RO69', 'rss' ],
+	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
+	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
+	'#NewsItProgram': [ 'プログラム', 'CodeZine', 'rss' ],
+	'#NewsItInfra': [ 'インフラ', 'ITpro Cloud, クラウドWatch, Think IT', 'rss' ],
+	'#NewsItPosting': [ 'はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
+	'#NewsItCompany': [ '企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE', 'rss' ],
+	'#NewsHealth': [ 'ヘルスケア', 'HeatlTech, マイナビ, 日経, ITmedia', 'rss' ],
+	'#NewsCar': [ 'Car', 'Carview, オートックワン', 'rss' ],
+	'#NewsGame': [ 'GAME', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net', 'rss' ],
+	'#NewsItYuru': [ 'ゆるネタ', 'Gigazine, ASCII', 'rss' ],
+	'#Profile': [ '', '', '' ],
+	'#Blog': [ '', '', '' ]
 };
 
 function locationHashChanged() {
@@ -1222,13 +1274,13 @@ function locationHashChanged() {
 	var str_01 = '';
 	var str_02 = '';
 
-	if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsMusicOversea'; }
+	if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsToday'; }
 
 	Object.keys(news_ary).forEach( function(key) {
 		if ( key == hash_val ) {
 			str_01 = news_ary[hash_val][0];
 			if ( news_ary[hash_val][2] == 'rss' ) {
-				str_02 = '<i class="fa fa-rss" aria-hidden="true"></i>&nbsp;&nbsp;' + news_ary[hash_val][1];
+				str_02 = '<i class="icon-rss"></i>&nbsp;' + news_ary[hash_val][1];
 			} else {
 				str_02 = news_ary[hash_val][1];
 			}
@@ -1239,11 +1291,9 @@ function locationHashChanged() {
 	}, news_ary );
 
 	// Goto Top
-	$('body,html').animate({ scrollTop: 0 }, 500);
-
-	if ( hash_val == '#Blog' ) {
-		//$('#sidebar a.toggle').click();
-	}
+	$('html, body').animate({
+		scrollTop: $('html').offset().top
+	}, 500, 'easeInOutExpo');
 
 }
 

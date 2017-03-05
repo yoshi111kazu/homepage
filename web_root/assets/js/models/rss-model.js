@@ -1,6 +1,7 @@
 var app = app || {};
 
 (function(app) {
+	app.NewsTodayModel = Backbone.Model.extend({  });
 	app.NewsMusicOverseaModel = Backbone.Model.extend({  });
 	app.NewsMusicItemModel = Backbone.Model.extend({ });
 	app.NewsItItModel = Backbone.Model.extend({ });

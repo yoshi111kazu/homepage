@@ -37,9 +37,7 @@ gulp.task("html-min", function() {
 //css
 gulp.task("css-merge", function() {
   var files = [
-   './css/ishino.css',
-   './css/font-awesome.min.css',
-   './css/style.css'
+   './css/ishino.css'
   ];
   return gulp.src(files)
     .pipe(concat('bundle.css'))
@@ -47,11 +45,12 @@ gulp.task("css-merge", function() {
     ;
 });
 gulp.task('css-min', function() {
-  gulp.src('./css/bootstrap_grid.css')
-    .pipe(cssmin())
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./css/'))
-  gulp.src('./css/bundle.css')
+  var files = [
+   './css/animate.css',
+   './css/icomoon.css',
+   './css/bundle.css'
+  ];
+  gulp.src(files)
     .pipe(cssmin())
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./css/'))
@@ -59,12 +58,20 @@ gulp.task('css-min', function() {
 });
 
 gulp.task('sass-compile', function(){
-  return gulp.src('./css/sass/html5up.scss')
+  var files = [
+   './css/sass/bootstrap.scss',
+   './css/sass/style.scss'
+  ];
+  return gulp.src(files)
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(gulp.dest('./css/'))
 });
 gulp.task('sass-min', function() {
-  return gulp.src('./css/html5up.css')
+  var files = [
+   './css/bootstrap.css',
+   './css/style.css'
+  ];
+  return gulp.src(files)
     .pipe(cssmin())
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./css/'))
@@ -73,11 +80,11 @@ gulp.task('sass-min', function() {
 //js
 gulp.task("js-merge-01", function() {
   var files = [
+   './js/lib/modernizr-2.6.2.min.js',
    './node_modules/jquery/dist/jquery.min.js',
-   './js/lib/skel.min.js',
-   './js/lib/skel-layout.min.js',
-   './js/lib/html5up-util.js',
-   './js/lib/html5up.js'
+   './node_modules/jquery-easing/jquery.easing.1.3.js',
+   './js/lib/jquery.waypoints.min.js',
+   './js/lib/freehtml5.js'
   ];
   return gulp.src(files)
     .pipe(concat('bundle_01.js'))
@@ -100,6 +107,7 @@ gulp.task("js-merge-02", function() {
    './js/models/rss-model.js',
    './js/collections/collection.js',
    './js/views/Top.js',
+   './js/views/NewsToday.js',
    './js/views/NewsMusic.js',
    './js/views/NewsItIt.js',
    './js/views/NewsItProgram.js',

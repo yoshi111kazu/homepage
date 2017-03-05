@@ -1,6 +1,11 @@
 var app = app || {};
 
 (function(app) {
+	app.NewsTodayCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=today',
+		model : app.NewsTodayModel,
+		parse : function(response) { return response; }
+	});
 	app.NewsMusicOverseaCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=music_oversea',
 		model : app.NewsMusicOverseaModel,

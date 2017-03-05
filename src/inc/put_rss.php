@@ -16,6 +16,9 @@
 	$filepath = WEB_ROOT . 'api/data/';
 	$ClsRSS = new ClsRSS();
 
+	$today_news = array();
+	$today_date = date("Ymd") - 1;
+
 	$genre = array( 'music_oversea', 'music_item', 'it_it', 'it_program', 'it_infra', 'it_posting', 'it_company', 'it_yuru', 'game', 'car', 'health', 'blog', 'blog_new' );
 	foreach( $genre as $key => $val ) {
 		$assign_data = array();
@@ -33,6 +36,24 @@
 			fwrite($fp, json_encode($assign_data['merge_data']) );
 			fclose($fp);
 		}
+		
+		// Today News
+		if ( $val != 'game' && $val != 'car' ) {
+			foreach( $assign_data['merge_data'] as $key => $val ) {
+				$str_date = str_replace( '/', '', mb_substr( $val['update'], 1, 10 ) );
+				if ( $str_date >= $today_date ) {
+					$today_news[] = $val;
+				}
+			}
+		}
+	}
+
+	if ( count( $today_news ) > 0 ) {
+		doArrayUrsort( $today_news, 'update' );
+		$filename = 'today_rss.json';
+		$fp = fopen( $filepath . $filename, 'w+' );
+		fwrite($fp, json_encode($today_news) );
+		fclose($fp);
 	}
 
 /**********/
