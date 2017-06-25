@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>http://ishino.info/</loc>
+</url>
+<url>
+  <loc>http://ishino.info/#Profile</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsMusicOversea</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsMusicItem</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsItIt</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsItProgram</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsItInfra</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsItCompany</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsHealth</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsCar</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsGame</loc>
+</url>
+<url>
+  <loc>http://dev.ishino.info/#NewsItYuru</loc>
+</url>
+</urlset>

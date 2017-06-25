@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="ja">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-	<title>ishino.info - HR/HM好きエンジニアのニュースサイト</title>
+	<title>ishino.info - モヒカンエンジニアのサイト</title>
 	<meta charset="utf-8">
-	<meta name="keywords" content="HR/HM,エンジニア,ニュース,テクノロジー,ロック">
-	<meta name="description" content="HR/HM好きエンジニアのニュースサイト">
-	<meta property="og:title" content="HR/HM好きエンジニアのニュースサイト" />
+	<meta name="keywords" content="ishino,yoshitomo,モヒカン,エンジニア,CTO,ニュース,洋楽,HR/HM,ロック,テクノロジー,ヘルスケア">
+	<meta name="description" content="好きなジャンルのニュースサイトをまとめた、キュレーションサイトです。趣味と勉強の情報収集用ですね。音楽は洋楽、特にHR/HM好き。その他にはテクノロジー、ヘルスケア、ゲーム、車などなど。簡単なポートフォリオ用途としても利用">
+	<meta property="og:title" content="モヒカンエンジニアのサイト" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="http://ishino.info/" />
 	<meta property="og:image" content="http://ishino.info/assets/image/_Mohi_01_512.png" />
 	<meta property="og:site_name"  content="ishino.info" />
-	<meta property="og:description" content="HR/HM好きエンジニアのニュースサイト" />
+	<meta property="og:description" content="モヒカンエンジニアのサイト" />
 	<meta property="fb:app_id" content="198456720600194" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@[Twitter ID]" />
@@ -39,7 +39,7 @@
 					<li class="has-dropdown">
 						<a>Music</a>
 						<ul class="dropdown">
-							<li><a href="#NewsMusicOversea">洋楽ニュース</a></li>
+							<li><a href="#NewsMusicOversea">洋楽全般</a></li>
 							<li><a href="#NewsMusicItem">機材・アイテム</a></li>
 						</ul>
 					</li>
@@ -50,19 +50,12 @@
 							<li><a href="#NewsItProgram">プログラム</a></li>
 							<li><a href="#NewsItInfra">インフラ</a></li>
 							<li><a href="#NewsItCompany">企業ブログ</a></li>
-						</ul>
-					</li>
-					<li class="has-dropdown">
-						<a>Other</a>
-						<ul class="dropdown">
-							<li><a href="#NewsHealth">ヘルスケア</a></li>
-							<li><a href="#NewsCar">Car</a></li>
-							<li><a href="#NewsGame">GAME</a></li>
 							<li><a href="#NewsItYuru">ゆるネタ</a></li>
 						</ul>
 					</li>
-					<li><a href="#Blog">Blog</a></li>
-					<li><a href="#Profile">Profile</a></li>
+					<li><a href="#NewsHealth">HealthCare</a></li>
+					<li><a href="#NewsGame">Game</a></li>
+					<li><a href="#NewsCar">Car</a></li>
 				</ul>
 			</div>
 			<div class="fh5co-top-social menu-1 text-right">
@@ -166,34 +159,48 @@
 	</script>
 
 	<!-- Profile -->
+	<script type="text/template" id="Top-template">
+		<br>
+		<div id="my-history">
+		<dl>
+			<dt><h5>ニュースまとめ</h5></dt>
+				<dd><ul><li><a href="#NewsMusicOversea">洋楽関連</a></li></ul></dd>
+		</dl>
+		</div>
+	</script>
+
+	<!-- Profile -->
 	<script type="text/template" id="Profile-template">
 		<br>
 		<div id="my-profile">
 			<ul class="fh5co-social-icons">
-				<li><img src="assets/image/_kao_circle_250.png" alt="profile" style="width:50px" /><br><sup>yoshi111kazu</sup></li>
-				<li>
-					<ul>
-						<li><a href="https://www.facebook.com/yoshitomo.ishino" target="_blank"><i class="icon-facebook"></i></a></li>
-						<!--<li><a href="https://twitter.com/yoshi111kazu" target="_blank"><i class="icon-twitter"></i></a></li>-->
-						<li><a href="https://www.linkedin.com/in/%E8%89%AF%E6%9C%8B-%E7%9F%B3%E9%87%8E-bb7a69b2" target="_blank"><i class="icon-linkedin"></i></a></li>
-						<li><a href="https://www.wantedly.com/users/17917668" target="_blank"><strong>W</strong></a></li>
-					</ul>
-					<ul>
-						<li><h5><a href="#Blog">[&nbsp;ブログ&nbsp;]</a></h5></li>
-					</ul>
-				</li>
+				<li><a href="https://www.facebook.com/yoshitomo.ishino" target="_blank"><i class="icon-facebook"></i></a></li>
+				<!--<li><a href="https://twitter.com/yoshi111kazu" target="_blank"><i class="icon-twitter"></i></a></li>-->
+				<li><a href="https://www.linkedin.com/in/%E8%89%AF%E6%9C%8B-%E7%9F%B3%E9%87%8E-bb7a69b2" target="_blank"><i class="icon-linkedin"></i></a></li>
+				<li><a href="https://www.wantedly.com/users/17917668" target="_blank"><strong>W</strong></a></li>
 			</ul>
 		</div>
 		<hr>
 		<div id="my-history">
 		<dl>
+			<dt><h5>2017</h5></dt>
+				<dd><ul><li><a href="http://icare.hatenablog.com/entry/cto20170606" target="_blank">【ブログ】G Suite（旧Google Apps）に移行したお話し<sup>（iCARE Inc.）</sup></a></li></ul></dd>
+				<dd><ul><li><a href="http://icare.hatenablog.com/entry/cto20170419" target="_blank">【ブログ】CEOも営業も、み〜んなGitHubで課題管理させちゃうよ♥<sup>（iCARE Inc.）</sup></a></li></ul></dd>
+				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/18eed8ad87ca7d934ea8" target="_blank">【Qiita】GoogleSpreadSheetに日次でデータ保存してチャット通知（Railsバッチ、KPI）</a></li></ul></dd>
+				<dd><ul><li><a href="http://icare.hatenablog.com/entry/ishino20170326" target="_blank">【ブログ】スタートアップに挑戦して2ヶ月が経ちました！<sup>（iCARE Inc.）</sup></a></li></ul></dd>
+				<dd><ul><li><a href="https://www.icare.jpn.com/news20170201/" target="_blank">「株式会社iCARE」にJoin</a></li></ul></dd>
+				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/caf3c09d4b986813d19d" target="_blank">【Qiita】SpreadSheetとGASを使ってGoogleAnalyticsのレポートをチャットへ日次送信</a></li></ul></dd>
+				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/4262e755ae11f9c656ea" target="_blank">【Qiita】雑談APIを何個か試してみた（Hubot + Chatwork + UserLocal, CotoGoto, Docomo）</a></li></ul></dd>
+				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/53ad4d50ee588b675b9a" target="_blank">【Qiita】【Webデザイン】HTML5テンプレートの比較</a></li></ul></dd>
+				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/e8b29aa2b103f6e4ec03" target="_blank">【Qiita】Rails 5 + Unicorn + Nginx 環境構築メモ（自動起動設定も）</a></li></ul></dd>
+				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/b9fee2c176d6c545dec5" target="_blank">【Qiita】MacBook Pro / Touch Bar (2016) の使い心地とか初期設定など</a></li></ul></dd>
 			<dt><h5>2016</h5></dt>
-				<dd><ul><li><a href="http://gamebiz.jp/?p=157129" target="_blank">【インタビュー】「つくり手が中心となって働ける会社にしたい」サイバード社が取組むエンジニア組織作りとは（Social Game Info）</a></li></ul></dd>
-				<dd><ul><li><a href="https://blog.ishino.info/?p=5" target="_blank">【イベント】IVS CTO Night & Day 2016 Spring 初参加</a></li></ul></dd>
+				<dd><ul><li><a href="http://gamebiz.jp/?p=157129" target="_blank">【インタビュー】「つくり手が中心となって働ける会社にしたい」サイバード社が取組むエンジニア組織作りとは<sup>（Social Game Info）</sup></a></li></ul></dd>
 				<dd><ul><li><a href="https://d-cube.connpass.com/event/25550/" target="_blank">【イベント】大手ソシャゲデベロッパーが明かす「躍進の裏側」</a></li></ul></dd>
 				<br>
 			<dt><h5>2014</h5></dt>
-				<dd><ul><li><a href="https://cloud.freebit.com/cloud/case/marvelous.html" target="_blank">【インタビュー】ブラウザ三国志のインフラ移設（フリービットクラウド）</a></li></ul></dd>
+				<dd><ul><li><a href="http://tech.marv.jp/?cat=6" target="_blank">【ブログ】見えないトラフィック ～Unicast Flooding～<sup>（Marvelous Inc.）</sup></a></li></ul></dd>
+				<dd><ul><li><a href="https://cloud.freebit.com/cloud/case/marvelous.html" target="_blank">【インタビュー】ブラウザ三国志のインフラ移設<sup>（フリービットクラウド）</sup></a></li></ul></dd>
 				<br>
 			<dt><h5>〜2011</h5></dt>
 				<dd><ul><li><a href="https://v1.ishino.info/wiki.html" target="_blank">技術メモ（PukiWiki）</a></li></ul></dd>
