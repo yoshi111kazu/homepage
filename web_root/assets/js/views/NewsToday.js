@@ -5,7 +5,7 @@ var app = app || {};
 	app.NewsTodayItemView = Backbone.Marionette.ItemView.extend({
 		//tagName : 'li',
 
-		template : '#rss-item-template',
+		template : '#rss-item-title-template',
 
 	});
 
