@@ -1252,8 +1252,8 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'#NewsToday': [ '最新(全ジャンル)', '', '' ],
-	'#NewsMusicOversea': [ '洋楽ニュース', 'BARKS, RO69', 'rss' ],
+	'#NewsToday': [ '最新ニュース(全ジャンル)', '', '' ],
+	'#NewsMusicOversea': [ '洋楽全般', 'BARKS, RO69', 'rss' ],
 	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
 	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
 	'#NewsItProgram': [ 'プログラム', 'CodeZine', 'rss' ],
