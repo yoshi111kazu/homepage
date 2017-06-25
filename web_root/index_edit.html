@@ -77,6 +77,19 @@
 		<div class="container">
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
+				<!--
+				<small class="block">
+				<ul>Sitemap
+					<li><a href="#NewsToday">最新パッと見（全ジャンル）</a></li>
+					<li>Music
+						<ul>
+							<li><a href="#NewsMusicOversea">洋楽関連</a></li>
+							<li><a href="#NewsMusicItem">機材・アイテム</a></li>
+						</ul>
+					</li>
+				</ul>
+				</small>
+				-->
 					<p>
 						<small class="block">&copy; ishino.info. All rights reserved.<br>( Design: FreeHTML5.co )</small>
 					</p>
@@ -88,7 +101,8 @@
 
 <!-- Templates of Contents start -->
 	<!-- Top -->
-	<script type="text/template" id="Top-template"></script>
+	<script type="text/template" id="Top-template">
+	</script>
 
 	<!-- NewsToday -->
 	<script type="text/template" id="NewsToday-layout-template"><div id="NewsToday-lists"></div></script>
@@ -106,6 +120,11 @@
 		<a href="<%- link %>" target="_blank"><%- title %></a><br>
 		<sup><%- link_from %>&nbsp;&nbsp;&nbsp;&nbsp;<%- update %></sup><br>
 		<div id="rss-item-data"><%= data %></div><br>
+	</script>
+	<!-- RSS一行分のテンプレート(タイトルのみ) -->
+	<script type="text/template" id="rss-item-title-template">
+		<a href="<%- link %>" target="_blank"><%- title %></a><br>
+		<sup><%- link_from %>&nbsp;&nbsp;&nbsp;&nbsp;<%- update %></sup><br>
 	</script>
 
 	<!-- NewsIt -->
@@ -159,17 +178,6 @@
 	</script>
 
 	<!-- Profile -->
-	<script type="text/template" id="Top-template">
-		<br>
-		<div id="my-history">
-		<dl>
-			<dt><h5>ニュースまとめ</h5></dt>
-				<dd><ul><li><a href="#NewsMusicOversea">洋楽関連</a></li></ul></dd>
-		</dl>
-		</div>
-	</script>
-
-	<!-- Profile -->
 	<script type="text/template" id="Profile-template">
 		<br>
 		<div id="my-profile">
@@ -194,6 +202,7 @@
 				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/53ad4d50ee588b675b9a" target="_blank">【Qiita】【Webデザイン】HTML5テンプレートの比較</a></li></ul></dd>
 				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/e8b29aa2b103f6e4ec03" target="_blank">【Qiita】Rails 5 + Unicorn + Nginx 環境構築メモ（自動起動設定も）</a></li></ul></dd>
 				<dd><ul><li><a href="http://qiita.com/yoshi111kazu/items/b9fee2c176d6c545dec5" target="_blank">【Qiita】MacBook Pro / Touch Bar (2016) の使い心地とか初期設定など</a></li></ul></dd>
+				<br>
 			<dt><h5>2016</h5></dt>
 				<dd><ul><li><a href="http://gamebiz.jp/?p=157129" target="_blank">【インタビュー】「つくり手が中心となって働ける会社にしたい」サイバード社が取組むエンジニア組織作りとは<sup>（Social Game Info）</sup></a></li></ul></dd>
 				<dd><ul><li><a href="https://d-cube.connpass.com/event/25550/" target="_blank">【イベント】大手ソシャゲデベロッパーが明かす「躍進の裏側」</a></li></ul></dd>
@@ -205,6 +214,45 @@
 			<dt><h5>〜2011</h5></dt>
 				<dd><ul><li><a href="https://v1.ishino.info/wiki.html" target="_blank">技術メモ（PukiWiki）</a></li></ul></dd>
 		</dl>
+		</div>
+	</script>
+
+	<!-- Sitemap -->
+	<script type="text/template" id="Sitemap-template">
+		<br>
+		<div id="my-history">
+		<ul>
+			<li><h5>ニュースまとめ見</h5>
+				<ul>
+					<li><a href="#NewsToday">最新パッと見（全ジャンル）</a></li>
+					<li>Music
+						<ul>
+							<li><a href="#NewsMusicOversea">洋楽関連</a></li>
+							<li><a href="#NewsMusicItem">機材・アイテム</a></li>
+						</ul>
+					</li>
+					<li>Technology
+						<ul>
+							<li><a href="#NewsItIt">一般・ビジネス</a></li>
+							<li><a href="#NewsItProgram">プログラム</a></li>
+							<li><a href="#NewsItInfra">インフラ</a></li>
+							<li><a href="#NewsItCompany">企業ブログ</a></li>
+							<li><a href="#NewsItYuru">ゆるネタ</a></li>
+						</ul>
+					</li>
+					<li><a href="#NewsHealth">HealthCare</a></li>
+					<li><a href="#NewsGame">Game</a></li>
+					<li><a href="#NewsCar">Car</a></li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li><h5>その他</h5>
+				<ul>
+					<li><a href="#Profile">Profile</a></li>
+					<li><a href="#Sitemap">Sitemap</a></li>
+				</ul>
+		</ul>
 		</div>
 	</script>
 

@@ -30,7 +30,7 @@ var app = app || {};
 
 		controller: new app.MainController(),
 		appRoutes : {
-			'Top'				: 'TopLists',
+			//''					: 'TopLists',
 			''					: 'NewsTodayLists',
 			'NewsToday'			: 'NewsTodayLists',
 			'NewsMusicOversea'	: 'NewsMusicOverseaLists',

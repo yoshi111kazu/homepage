@@ -26,7 +26,9 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'#NewsToday': [ '最新ニュース(全ジャンル)', '', '' ],
+	'': [ '最新ニュース（全ジャンル）', '', '' ],
+	'#': [ '最新ニュース（全ジャンル）', '', '' ],
+	'#NewsToday': [ '最新ニュース（全ジャンル）', '', '' ],
 	'#NewsMusicOversea': [ '洋楽全般', 'BARKS, RO69', 'rss' ],
 	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
 	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
@@ -48,7 +50,7 @@ function locationHashChanged() {
 	var str_01 = '';
 	var str_02 = '';
 
-	if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsToday'; }
+	//if ( hash_val == '#' || hash_val == '' ) { hash_val = '#NewsToday'; }
 
 	Object.keys(news_ary).forEach( function(key) {
 		if ( key == hash_val ) {
@@ -59,8 +61,8 @@ function locationHashChanged() {
 				str_02 = news_ary[hash_val][1];
 			}
 
-			$("#newsheader_01").html(str_01);
-			$("#newsheader_02").html(str_02);
+			$("#newsheader_01").html('<h1>' + str_01 + '</h1>');
+			$("#newsheader_02").html('<h2>' + str_02 + '</h2>');
 		}
 	}, news_ary );
 
