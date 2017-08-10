@@ -119,7 +119,7 @@ body {
 	overflow-x: hidden;
 	width: 100%;
 	height: 100%;
-	padding-top: 6em !important;
+	padding-top: 5em !important;
 	@include transition(.5s);
 	.offcanvas & {
 		overflow: hidden;	
@@ -180,11 +180,11 @@ h1, h2 {
 	top: 0;
 	left: 0;
 	right: 0;
-	padding: 25px 0;
+	padding: 15px 0 10px 0;
 	z-index: 1;
 	background: $brand-overlay-color;
 	@media screen and (max-width: $screen-sm) {
-		padding: 20px 0;
+		padding: 15px 0 10px 0;
 	}
 	.fh5co-top-logo,
 	.fh5co-top-menu,
