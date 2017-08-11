@@ -58,14 +58,6 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'Gigazine', 'URL' => 'http://feed.rssad.jp/rss/gigazine/rss_2.0' );
 			//$rss_site[] = array( 'site' => 'ネタりか', 'URL' => 'http://netallica.yahoo.co.jp/rss/top' );
 			$rss_site[] = array( 'site' => 'ASCII.jp', 'URL' => 'http://rss.rssad.jp/rss/ascii/rss.xml' );
-		} elseif ( $genre == 'game' ) {
-			$rss_site[] = array( 'site' => 'SocailGameInfo', 'URL' => 'http://gamebiz.jp/?feed=rss' );
-			$rss_site[] = array( 'site' => 'GameBusiness.jp', 'URL' => 'http://www.gamebusiness.jp/rss/rss.php' );
-			$rss_site[] = array( 'site' => '4Gamer.net', 'URL' => 'http://www.4gamer.net/rss/index.xml' );
-			$rss_site[] = array( 'site' => 'ファミ通', 'URL' => 'http://www.famitsu.com/rss/fcom_all.rdf' );
-		} elseif ( $genre == 'car' ) {
-			$rss_site[] = array( 'site' => 'Carview', 'URL' => 'http://www.carview.co.jp/rss/?t=news' );
-			$rss_site[] = array( 'site' => 'オートックワン', 'URL' => 'http://autoc-one.jp/news/rss/' );
 		} elseif ( $genre == 'health' ) {
 			$rss_site[] = array( 'site' => 'HeatlTech', 'URL' => 'https://healthtechnews.jp/feed/' );
 			$rss_site[] = array( 'site' => 'マイナビ', 'URL' => 'http://feeds.journal.mycom.co.jp/rss/mycom/healthcare/mental' );

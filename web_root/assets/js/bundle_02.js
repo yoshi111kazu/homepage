@@ -532,8 +532,6 @@ var app = app || {};
 	app.NewsItCompanyModel = Backbone.Model.extend({ });
 	app.NewsItYuruModel = Backbone.Model.extend({ });
 	app.NewsHealthModel = Backbone.Model.extend({ });
-	app.NewsCarModel = Backbone.Model.extend({ });
-	app.NewsGameModel = Backbone.Model.extend({ });
 	app.MyNewBlogModel = Backbone.Model.extend({ });
 })(app);
 
@@ -588,16 +586,6 @@ var app = app || {};
 	app.NewsHealthCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=health',
 		model : app.NewsHealthModel,
-		parse : function(response) { return response; }
-	});
-	app.NewsCarCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=car',
-		model : app.NewsCarModel,
-		parse : function(response) { return response; }
-	});
-	app.NewsGameCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=game',
-		model : app.NewsGameModel,
 		parse : function(response) { return response; }
 	});
 	app.MyNewBlogCollection = Backbone.Collection.extend({
@@ -1016,92 +1004,6 @@ var app = app || {};
 var app = app || {};
 
 (function(app) {
-	// News
-	app.NewsCarItemView = Backbone.Marionette.ItemView.extend({
-		//tagName : 'li',
-
-		template : '#rss-item-template',
-
-	});
-
-	app.NewsCarCompositeView = Backbone.Marionette.CompositeView.extend({
-		template: '#NewsCar-composite-template',
-
-		childView : app.NewsCarItemView,
-
-		childViewContainer : 'span',
-
-	});
-
-	app.NewsCarLayoutView = Backbone.Marionette.LayoutView.extend({
-		template: '#NewsCar-layout-template',
-
-		regions : {
-			listRegion : '#NewsCar-lists',
-		},
-
-		onRender : function(){
-			var carCollection = new app.NewsCarCollection();
-			this.listenTo(carCollection , 'reset', this.showList, this);
-			carCollection.fetch({reset : true});
-		},
-
-		showList : function(carCollection){
-			this.listRegion.show( new app.NewsCarCompositeView({
-				collection : carCollection
-			}));
-		},
-
-	});
-
-})(app);
-
-var app = app || {};
-
-(function(app) {
-	// News
-	app.NewsGameItemView = Backbone.Marionette.ItemView.extend({
-		//tagName : 'li',
-
-		template : '#rss-item-template',
-
-	});
-
-	app.NewsGameCompositeView = Backbone.Marionette.CompositeView.extend({
-		template: '#NewsGame-composite-template',
-
-		childView : app.NewsGameItemView,
-
-		childViewContainer : 'span',
-
-	});
-
-	app.NewsGameLayoutView = Backbone.Marionette.LayoutView.extend({
-		template: '#NewsGame-layout-template',
-
-		regions : {
-			listRegion : '#NewsGame-lists',
-		},
-
-		onRender : function(){
-			var NewsGameCollection = new app.NewsGameCollection();
-			this.listenTo(NewsGameCollection , 'reset', this.showList, this);
-			NewsGameCollection.fetch({reset : true});
-		},
-
-		showList : function(NewsGameCollection){
-			this.listRegion.show( new app.NewsGameCompositeView({
-				collection : NewsGameCollection
-			}));
-		},
-
-	});
-
-})(app);
-
-var app = app || {};
-
-(function(app) {
 	app.BlogItemView = Backbone.Marionette.ItemView.extend({
 		template: '#Blog-template',
 	});
@@ -1173,8 +1075,6 @@ var app = app || {};
 		NewsItYuruLists : function() { this.nextMainView(app.NewsItYuruLayoutView); },
 		NewsItLinkLists : function() { this.nextMainView(app.NewsItLinkView); },
 		NewsHealthLists : function() { this.nextMainView(app.NewsHealthLayoutView); },
-		NewsCarLists : function() { this.nextMainView(app.NewsCarLayoutView); },
-		NewsGameLists : function() { this.nextMainView(app.NewsGameLayoutView); },
 		ProfileLists : function() { this.nextMainView(app.ProfileItemView); },
 		BlogLists : function() { this.nextMainView(app.BlogItemView); },
 
@@ -1201,8 +1101,6 @@ var app = app || {};
 			'NewsItYuru'		: 'NewsItYuruLists',
 			'NewsItLink'		: 'NewsItLinkLists',
 			'NewsHealth'		: 'NewsHealthLists',
-			'NewsCar'			: 'NewsCarLists',
-			'NewsGame'			: 'NewsGameLists',
 			'Profile'			: 'ProfileLists',
 			'Blog'				: 'BlogLists'
 		},
@@ -1252,9 +1150,9 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューで選択してね', '' ],
-	'#': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューで選択してね', '' ],
-	'#NewsToday': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューで選択してね', '' ],
+	'': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
+	'#': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
+	'#NewsToday': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
 	'#NewsMusicOversea': [ '洋楽全般', 'BARKS, RO69', 'rss' ],
 	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
 	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
@@ -1263,8 +1161,6 @@ var news_ary = {
 	'#NewsItPosting': [ 'はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
 	'#NewsItCompany': [ '企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE', 'rss' ],
 	'#NewsHealth': [ 'ヘルスケア', 'HeatlTech, マイナビ, 日経, ITmedia', 'rss' ],
-	'#NewsCar': [ 'Car', 'Carview, オートックワン', 'rss' ],
-	'#NewsGame': [ 'GAME', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net', 'rss' ],
 	'#NewsItYuru': [ 'ゆるネタ', 'Gigazine, ASCII', 'rss' ],
 	'#Profile': [ '', '', '' ],
 	'#Blog': [ '', '', '' ]
