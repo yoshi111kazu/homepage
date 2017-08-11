@@ -51,16 +51,6 @@ var app = app || {};
 		model : app.NewsHealthModel,
 		parse : function(response) { return response; }
 	});
-	app.NewsCarCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=car',
-		model : app.NewsCarModel,
-		parse : function(response) { return response; }
-	});
-	app.NewsGameCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=game',
-		model : app.NewsGameModel,
-		parse : function(response) { return response; }
-	});
 	app.MyNewBlogCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=blog_new',
 		model : app.MyNewBlogModel,

@@ -15,8 +15,6 @@ var app = app || {};
 		NewsItYuruLists : function() { this.nextMainView(app.NewsItYuruLayoutView); },
 		NewsItLinkLists : function() { this.nextMainView(app.NewsItLinkView); },
 		NewsHealthLists : function() { this.nextMainView(app.NewsHealthLayoutView); },
-		NewsCarLists : function() { this.nextMainView(app.NewsCarLayoutView); },
-		NewsGameLists : function() { this.nextMainView(app.NewsGameLayoutView); },
 		ProfileLists : function() { this.nextMainView(app.ProfileItemView); },
 		BlogLists : function() { this.nextMainView(app.BlogItemView); },
 
@@ -43,8 +41,6 @@ var app = app || {};
 			'NewsItYuru'		: 'NewsItYuruLists',
 			'NewsItLink'		: 'NewsItLinkLists',
 			'NewsHealth'		: 'NewsHealthLists',
-			'NewsCar'			: 'NewsCarLists',
-			'NewsGame'			: 'NewsGameLists',
 			'Profile'			: 'ProfileLists',
 			'Blog'				: 'BlogLists'
 		},

@@ -26,9 +26,9 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'': [ '最新ニュース（全ジャンル）', '', '' ],
-	'#': [ '最新ニュース（全ジャンル）', '', '' ],
-	'#NewsToday': [ '最新ニュース（全ジャンル）', '', '' ],
+	'': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
+	'#': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
+	'#NewsToday': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
 	'#NewsMusicOversea': [ '洋楽全般', 'BARKS, RO69', 'rss' ],
 	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
 	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
@@ -37,8 +37,6 @@ var news_ary = {
 	'#NewsItPosting': [ 'はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
 	'#NewsItCompany': [ '企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE', 'rss' ],
 	'#NewsHealth': [ 'ヘルスケア', 'HeatlTech, マイナビ, 日経, ITmedia', 'rss' ],
-	'#NewsCar': [ 'Car', 'Carview, オートックワン', 'rss' ],
-	'#NewsGame': [ 'GAME', 'SocailGameInfo, GameBusiness.jp, 4Gamer.net', 'rss' ],
 	'#NewsItYuru': [ 'ゆるネタ', 'Gigazine, ASCII', 'rss' ],
 	'#Profile': [ '', '', '' ],
 	'#Blog': [ '', '', '' ]
