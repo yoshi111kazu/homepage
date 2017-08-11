@@ -1252,9 +1252,9 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'': [ '最新ニュース（全ジャンル）', '', '' ],
-	'#': [ '最新ニュース（全ジャンル）', '', '' ],
-	'#NewsToday': [ '最新ニュース（全ジャンル）', '', '' ],
+	'': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューで選択してね', '' ],
+	'#': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューで選択してね', '' ],
+	'#NewsToday': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューで選択してね', '' ],
 	'#NewsMusicOversea': [ '洋楽全般', 'BARKS, RO69', 'rss' ],
 	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
 	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
