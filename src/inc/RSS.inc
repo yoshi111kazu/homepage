@@ -38,6 +38,7 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'THE BRIDGE', 'URL' => 'http://feeds.feedburner.com/SdJapan?format=xml' );
 			$rss_site[] = array( 'site' => 'CNET Japan', 'URL' => 'http://feeds.japan.cnet.com/rss/cnet/all.rdf' );
 			$rss_site[] = array( 'site' => 'InfoQ', 'URL' => 'https://www.infoq.com/jp/feed' );
+			$rss_site[] = array( 'site' => 'Harvard Business Review', 'URL' => 'http://www.dhbr.net/list/feed/rss' );
 		} elseif ( $genre == 'it_program' ) {
 			$rss_site[] = array( 'site' => 'Code Zine', 'URL' => 'http://rss.rssad.jp/rss/codezine/new/20/index.xml' );
 		} elseif ( $genre == 'it_infra' ) {
