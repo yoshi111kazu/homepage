@@ -1155,7 +1155,7 @@ var news_ary = {
 	'#NewsToday': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
 	'#NewsMusicOversea': [ '洋楽全般', 'BARKS, RO69', 'rss' ],
 	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
-	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan', 'rss' ],
+	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan, InfoQ, HBR', 'rss' ],
 	'#NewsItProgram': [ 'プログラム', 'CodeZine', 'rss' ],
 	'#NewsItInfra': [ 'インフラ', 'ITpro Cloud, クラウドWatch, Think IT', 'rss' ],
 	'#NewsItPosting': [ 'はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
