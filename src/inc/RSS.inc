@@ -48,7 +48,7 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'HEARTBEATS', 'URL' => 'https://heartbeats.jp/hbblog/atom.xml' );
 		} elseif ( $genre == 'it_posting' ) {
 			//$rss_site[] = array( 'site' => 'はてな', 'URL' => 'http://b.hatena.ne.jp/hotentry/it.rss' );
-			//$rss_site[] = array( 'site' => 'Qiita', 'URL' => 'http://qiita.com/popular-items/feed' );
+			$rss_site[] = array( 'site' => 'Qiita', 'URL' => 'http://qiita.com/popular-items/feed' );
 		} elseif ( $genre == 'it_company' ) {
 			$rss_site[] = array( 'site' => 'cookpad', 'URL' => 'http://techlife.cookpad.com/rss', 'no_desc' => true );
 			$rss_site[] = array( 'site' => 'はてな', 'URL' => 'http://developer.hatenastaff.com/rss', 'no_desc' => true );
