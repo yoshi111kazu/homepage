@@ -32,7 +32,7 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'Supernice!', 'URL' => 'http://effector-hakase.com/feed' );
 			$rss_site[] = array( 'site' => 'Supernice!', 'URL' => 'http://guitar-amp.biz/feed' );
 		} elseif ( $genre == 'it_it' ) {
-			$rss_site[] = array( 'site' => 'ITpro', 'URL' => 'http://itpro.nikkeibp.co.jp/rss/news.rdf' );
+			$rss_site[] = array( 'site' => 'ITpro', 'URL' => 'http://tech.nikkeibp.co.jp/rss/xtech-it.rdf' );
 			$rss_site[] = array( 'site' => 'gihyo.jp', 'URL' => 'http://gihyo.jp/feed/rss1' );
 			$rss_site[] = array( 'site' => 'TechCrunch', 'URL' => 'http://jp.techcrunch.com/feed/', 'no_desc' => true );
 			$rss_site[] = array( 'site' => 'THE BRIDGE', 'URL' => 'http://feeds.feedburner.com/SdJapan?format=xml' );
@@ -42,7 +42,7 @@ class ClsRSS {
 		} elseif ( $genre == 'it_program' ) {
 			$rss_site[] = array( 'site' => 'Code Zine', 'URL' => 'http://rss.rssad.jp/rss/codezine/new/20/index.xml' );
 		} elseif ( $genre == 'it_infra' ) {
-			$rss_site[] = array( 'site' => 'ITpro Cloud', 'URL' => 'http://itpro.nikkeibp.co.jp/rss/cloud.rdf' );
+			#$rss_site[] = array( 'site' => 'ITpro Cloud', 'URL' => 'http://itpro.nikkeibp.co.jp/rss/cloud.rdf' );
 			$rss_site[] = array( 'site' => 'クラウド Watch', 'URL' => 'http://cloud.watch.impress.co.jp/cda/rss/cloud.rdf' );
 			$rss_site[] = array( 'site' => 'Think IT', 'URL' => 'http://thinkit.co.jp/rss.xml' );
 			$rss_site[] = array( 'site' => 'HEARTBEATS', 'URL' => 'https://heartbeats.jp/hbblog/atom.xml' );
@@ -62,7 +62,8 @@ class ClsRSS {
 		} elseif ( $genre == 'health' ) {
 			$rss_site[] = array( 'site' => 'HeatlTech', 'URL' => 'https://healthtechnews.jp/feed/' );
 			$rss_site[] = array( 'site' => 'マイナビ', 'URL' => 'http://feeds.journal.mycom.co.jp/rss/mycom/healthcare/mental' );
-			$rss_site[] = array( 'site' => '日経', 'URL' => 'http://techon.nikkeibp.co.jp/ndh/index.rdf' );
+			#$rss_site[] = array( 'site' => '日経', 'URL' => 'http://techon.nikkeibp.co.jp/ndh/index.rdf' );
+			$rss_site[] = array( 'site' => '日経', 'URL' => 'http://tech.nikkeibp.co.jp/rss/xtech-hlth.rdf' );
 			$rss_site[] = array( 'site' => 'ITmedia', 'URL' => 'http://headlines.yahoo.co.jp/rss/it_health-c_life.xml' );
 		} elseif ( $genre == 'blog' || $genre == 'blog_new' ) {
 			$rss_site[] = array( 'site' => 'yoshi111kazu', 'URL' => 'https://blog.ishino.info/?feed=rss2' );
