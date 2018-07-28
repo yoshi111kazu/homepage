@@ -26,11 +26,6 @@ var app = app || {};
 		model : app.NewsItProgramModel,
 		parse : function(response) { return response; }
 	});
-	app.NewsItInfraCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=it_infra',
-		model : app.NewsItInfraModel,
-		parse : function(response) { return response; }
-	});
 	app.NewsItPostingCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=it_posting',
 		model : app.NewsItPostingModel,
@@ -41,14 +36,19 @@ var app = app || {};
 		model : app.NewsItCompanyModel,
 		parse : function(response) { return response; }
 	});
-	app.NewsItYuruCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=it_yuru',
-		model : app.NewsItYuruModel,
-		parse : function(response) { return response; }
-	});
 	app.NewsHealthCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=health',
 		model : app.NewsHealthModel,
+		parse : function(response) { return response; }
+	});
+	app.NewsBusinessCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=business',
+		model : app.NewsBusinessModel,
+		parse : function(response) { return response; }
+	});
+	app.NewsOtherCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=other',
+		model : app.NewsOtherModel,
 		parse : function(response) { return response; }
 	});
 	app.MyNewBlogCollection = Backbone.Collection.extend({
