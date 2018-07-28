@@ -36,7 +36,7 @@ var news_ary = {
 	'#NewsItPosting': [ 'Tech > はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
 	'#NewsItCompany': [ 'Tech > 企業ブログ', '', 'rss' ],
 	'#NewsHealth': [ 'Healthcare', 'i-channel, HeatlTech, 日経デジタルヘルス, ITmedia', 'rss' ],
-	'#NewsBusiness': [ 'Business', 'HBR', 'rss' ],
+	'#NewsBusiness': [ 'Business', 'HBR, Diamond Online, Bizコンパス', 'rss' ],
 	'#NewsOther': [ 'Other', 'Gigazine, ネタりか', 'rss' ],
 	'#Profile': [ '', '', '' ],
 	'#Blog': [ '', '', '' ]

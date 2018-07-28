@@ -63,6 +63,8 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'ITmedia', 'URL' => 'https://headlines.yahoo.co.jp/rss/it_health-c_life.xml' );
 		} elseif ( $genre == 'business' ) {
 			$rss_site[] = array( 'site' => 'Harvard Business Review', 'URL' => 'https://www.dhbr.net/list/feed/rss' );
+			$rss_site[] = array( 'site' => 'Diamond Online', 'URL' => 'https://diamond.jp/list/rsssc?w=%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%BB%E3%82%B9%E3%82%AD%E3%83%AB' );
+			$rss_site[] = array( 'site' => 'Bizコンパス', 'URL' => 'https://www.bizcompass.jp/feed/?link_id=head_rss' );
 		} elseif ( $genre == 'other' ) {
 			$rss_site[] = array( 'site' => 'Gigazine', 'URL' => 'https://gigazine.net/news/rss_2.0/' );
 			$rss_site[] = array( 'site' => 'ネタりか', 'URL' => 'https://netallica.yahoo.co.jp/rss/top' );
@@ -138,6 +140,9 @@ class ClsRSS {
 							if ( $val['site'] == 'yoshi111kazu' ) {
 								$val2['description'] = $val2['content:encoded'];
 							}
+							if ( $val['site'] == 'i-channel' ) {
+								$val2['description'] = '';
+							}
 
 							$result[] = array( 'title' => $val2['title'],
 													'link' => $val2['link'],
@@ -145,6 +150,7 @@ class ClsRSS {
 													'data' =>  $val2['description'],
 													'update' => '['.$rss_date.']'
 													);
+
 							$rss_cnt++;
 						}
 					}
