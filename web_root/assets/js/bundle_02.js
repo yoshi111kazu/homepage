@@ -527,11 +527,11 @@ var app = app || {};
 	app.NewsMusicItemModel = Backbone.Model.extend({ });
 	app.NewsItItModel = Backbone.Model.extend({ });
 	app.NewsItProgramModel = Backbone.Model.extend({ });
-	app.NewsItInfraModel = Backbone.Model.extend({ });
 	app.NewsItPostingModel = Backbone.Model.extend({ });
 	app.NewsItCompanyModel = Backbone.Model.extend({ });
-	app.NewsItYuruModel = Backbone.Model.extend({ });
 	app.NewsHealthModel = Backbone.Model.extend({ });
+	app.NewsBusinessModel = Backbone.Model.extend({ });
+	app.NewsOtherModel = Backbone.Model.extend({ });
 	app.MyNewBlogModel = Backbone.Model.extend({ });
 })(app);
 
@@ -563,11 +563,6 @@ var app = app || {};
 		model : app.NewsItProgramModel,
 		parse : function(response) { return response; }
 	});
-	app.NewsItInfraCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=it_infra',
-		model : app.NewsItInfraModel,
-		parse : function(response) { return response; }
-	});
 	app.NewsItPostingCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=it_posting',
 		model : app.NewsItPostingModel,
@@ -578,14 +573,19 @@ var app = app || {};
 		model : app.NewsItCompanyModel,
 		parse : function(response) { return response; }
 	});
-	app.NewsItYuruCollection = Backbone.Collection.extend({
-		url : '/api/get_rss.php?genre=it_yuru',
-		model : app.NewsItYuruModel,
-		parse : function(response) { return response; }
-	});
 	app.NewsHealthCollection = Backbone.Collection.extend({
 		url : '/api/get_rss.php?genre=health',
 		model : app.NewsHealthModel,
+		parse : function(response) { return response; }
+	});
+	app.NewsBusinessCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=business',
+		model : app.NewsBusinessModel,
+		parse : function(response) { return response; }
+	});
+	app.NewsOtherCollection = Backbone.Collection.extend({
+		url : '/api/get_rss.php?genre=other',
+		model : app.NewsOtherModel,
 		parse : function(response) { return response; }
 	});
 	app.MyNewBlogCollection = Backbone.Collection.extend({
@@ -802,49 +802,6 @@ var app = app || {};
 
 (function(app) {
 	// News
-	app.NewsItInfraItemView = Backbone.Marionette.ItemView.extend({
-		//tagName : 'li',
-
-		template : '#rss-item-template',
-
-	});
-
-	app.NewsItInfraCompositeView = Backbone.Marionette.CompositeView.extend({
-		template: '#NewsItInfra-composite-template',
-
-		childView : app.NewsItInfraItemView,
-
-		childViewContainer : 'span',
-
-	});
-
-	app.NewsItInfraLayoutView = Backbone.Marionette.LayoutView.extend({
-		template: '#NewsItInfra-layout-template',
-
-		regions : {
-			listRegion : '#NewsItInfra-lists',
-		},
-
-		onRender : function(){
-			var NewsItInfraCollection = new app.NewsItInfraCollection();
-			this.listenTo(NewsItInfraCollection , 'reset', this.showList, this);
-			NewsItInfraCollection.fetch({reset : true});
-		},
-
-		showList : function(NewsItInfraCollection){
-			this.listRegion.show( new app.NewsItInfraCompositeView({
-				collection : NewsItInfraCollection
-			}));
-		},
-
-	});
-
-})(app);
-
-var app = app || {};
-
-(function(app) {
-	// News
 	app.NewsItPostingItemView = Backbone.Marionette.ItemView.extend({
 		template : '#rss-item-template',
 	});
@@ -919,49 +876,6 @@ var app = app || {};
 
 (function(app) {
 	// News
-	app.NewsItYuruItemView = Backbone.Marionette.ItemView.extend({
-		//tagName : 'li',
-
-		template : '#rss-item-template',
-
-	});
-
-	app.NewsItYuruCompositeView = Backbone.Marionette.CompositeView.extend({
-		template: '#NewsItYuru-composite-template',
-
-		childView : app.NewsItYuruItemView,
-
-		childViewContainer : 'span',
-
-	});
-
-	app.NewsItYuruLayoutView = Backbone.Marionette.LayoutView.extend({
-		template: '#NewsItYuru-layout-template',
-
-		regions : {
-			listRegion : '#NewsItYuru-lists',
-		},
-
-		onRender : function(){
-			var NewsItYuruCollection = new app.NewsItYuruCollection();
-			this.listenTo(NewsItYuruCollection , 'reset', this.showList, this);
-			NewsItYuruCollection.fetch({reset : true});
-		},
-
-		showList : function(NewsItYuruCollection){
-			this.listRegion.show( new app.NewsItYuruCompositeView({
-				collection : NewsItYuruCollection
-			}));
-		},
-
-	});
-
-})(app);
-
-var app = app || {};
-
-(function(app) {
-	// News
 	app.NewsHealthItemView = Backbone.Marionette.ItemView.extend({
 		//tagName : 'li',
 
@@ -994,6 +908,92 @@ var app = app || {};
 		showList : function(NewsHealthCollection){
 			this.listRegion.show( new app.NewsHealthCompositeView({
 				collection : NewsHealthCollection
+			}));
+		},
+
+	});
+
+})(app);
+
+var app = app || {};
+
+(function(app) {
+	// News
+	app.NewsBusinessItemView = Backbone.Marionette.ItemView.extend({
+		//tagName : 'li',
+
+		template : '#rss-item-template',
+
+	});
+
+	app.NewsBusinessCompositeView = Backbone.Marionette.CompositeView.extend({
+		template: '#NewsBusiness-composite-template',
+
+		childView : app.NewsBusinessItemView,
+
+		childViewContainer : 'span',
+
+	});
+
+	app.NewsBusinessLayoutView = Backbone.Marionette.LayoutView.extend({
+		template: '#NewsBusiness-layout-template',
+
+		regions : {
+			listRegion : '#NewsBusiness-lists',
+		},
+
+		onRender : function(){
+			var NewsBusinessCollection = new app.NewsBusinessCollection();
+			this.listenTo(NewsBusinessCollection , 'reset', this.showList, this);
+			NewsBusinessCollection.fetch({reset : true});
+		},
+
+		showList : function(NewsBusinessCollection){
+			this.listRegion.show( new app.NewsBusinessCompositeView({
+				collection : NewsBusinessCollection
+			}));
+		},
+
+	});
+
+})(app);
+
+var app = app || {};
+
+(function(app) {
+	// News
+	app.NewsOtherItemView = Backbone.Marionette.ItemView.extend({
+		//tagName : 'li',
+
+		template : '#rss-item-template',
+
+	});
+
+	app.NewsOtherCompositeView = Backbone.Marionette.CompositeView.extend({
+		template: '#NewsOther-composite-template',
+
+		childView : app.NewsOtherItemView,
+
+		childViewContainer : 'span',
+
+	});
+
+	app.NewsOtherLayoutView = Backbone.Marionette.LayoutView.extend({
+		template: '#NewsOther-layout-template',
+
+		regions : {
+			listRegion : '#NewsOther-lists',
+		},
+
+		onRender : function(){
+			var NewsOtherCollection = new app.NewsOtherCollection();
+			this.listenTo(NewsOtherCollection , 'reset', this.showList, this);
+			NewsOtherCollection.fetch({reset : true});
+		},
+
+		showList : function(NewsOtherCollection){
+			this.listRegion.show( new app.NewsOtherCompositeView({
+				collection : NewsOtherCollection
 			}));
 		},
 
@@ -1069,12 +1069,12 @@ var app = app || {};
 		NewsMusicItemLists : function() { this.nextMainView(app.NewsMusicItemLayoutView); },
 		NewsItItLists : function() { this.nextMainView(app.NewsItItLayoutView); },
 		NewsItProgramLists : function() { this.nextMainView(app.NewsItProgramLayoutView); },
-		NewsItInfraLists : function() { this.nextMainView(app.NewsItInfraLayoutView); },
 		NewsItPostingLists : function() { this.nextMainView(app.NewsItPostingLayoutView); },
 		NewsItCompanyLists : function() { this.nextMainView(app.NewsItCompanyLayoutView); },
-		NewsItYuruLists : function() { this.nextMainView(app.NewsItYuruLayoutView); },
 		NewsItLinkLists : function() { this.nextMainView(app.NewsItLinkView); },
 		NewsHealthLists : function() { this.nextMainView(app.NewsHealthLayoutView); },
+		NewsBusinessLists : function() { this.nextMainView(app.NewsBusinessLayoutView); },
+		NewsOtherLists : function() { this.nextMainView(app.NewsOtherLayoutView); },
 		ProfileLists : function() { this.nextMainView(app.ProfileItemView); },
 		BlogLists : function() { this.nextMainView(app.BlogItemView); },
 
@@ -1095,12 +1095,12 @@ var app = app || {};
 			'NewsMusicItem'		: 'NewsMusicItemLists',
 			'NewsItIt'			: 'NewsItItLists',
 			'NewsItProgram'		: 'NewsItProgramLists',
-			'NewsItInfra'		: 'NewsItInfraLists',
 			'NewsItPosting'		: 'NewsItPostingLists',
 			'NewsItCompany'		: 'NewsItCompanyLists',
-			'NewsItYuru'		: 'NewsItYuruLists',
 			'NewsItLink'		: 'NewsItLinkLists',
 			'NewsHealth'		: 'NewsHealthLists',
+			'NewsBusiness'		: 'NewsBusinessLists',
+			'NewsOther'			: 'NewsOtherLists',
 			'Profile'			: 'ProfileLists',
 			'Blog'				: 'BlogLists'
 		},
@@ -1150,18 +1150,18 @@ window.onload = locationHashChanged;
 window.onhashchange = locationHashChanged;
 
 var news_ary = {
-	'': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
-	'#': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
-	'#NewsToday': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューから', '' ],
-	'#NewsMusicOversea': [ '洋楽全般', 'BARKS, RO69', 'rss' ],
-	'#NewsMusicItem': [ '機材・アイテム', 'RandoM, Supernice!', 'rss' ],
-	'#NewsItIt': [ '一般・ビジネス', 'ITpro, gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan, InfoQ, HBR', 'rss' ],
-	'#NewsItProgram': [ 'プログラム', 'CodeZine', 'rss' ],
-	'#NewsItInfra': [ 'インフラ', 'ITpro Cloud, クラウドWatch, Think IT', 'rss' ],
-	'#NewsItPosting': [ 'はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
-	'#NewsItCompany': [ '企業ブログ', 'cookpad, はてな, mercari, TORETA, LINE', 'rss' ],
-	'#NewsHealth': [ 'ヘルスケア', 'HeatlTech, マイナビ, 日経, ITmedia', 'rss' ],
-	'#NewsItYuru': [ 'ゆるネタ', 'Gigazine, ASCII', 'rss' ],
+	'': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューからどうぞ', '' ],
+	'#': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューからどうぞ', '' ],
+	'#NewsToday': [ '最新ニュース（24H以内）', '※ジャンルで絞り込みたい場合はメニューからどうぞ', '' ],
+	'#NewsMusicOversea': [ 'Music > 洋楽全般', 'BARKS, RO69', 'rss' ],
+	'#NewsMusicItem': [ 'Music > 機材・アイテム', 'RittorMusic, Supernice!', 'rss' ],
+	'#NewsItIt': [ 'Tech > 一般', 'gihyo.jp, TechCrunch, THE BRIDGE, CNET Japan, InfoQ, NIKKEI TECH, ASCII.jp', 'rss' ],
+	'#NewsItProgram': [ 'Tech > 詳細', 'CodeZine, クラウドWatch, Think IT', 'rss' ],
+	'#NewsItPosting': [ 'Tech > はてぶ・Qiita', 'はてな, Qiita', 'rss' ],
+	'#NewsItCompany': [ 'Tech > 企業ブログ', '', 'rss' ],
+	'#NewsHealth': [ 'Healthcare', 'i-channel, HeatlTech, 日経デジタルヘルス, ITmedia', 'rss' ],
+	'#NewsBusiness': [ 'Business', 'HBR, Diamond Online, Bizコンパス', 'rss' ],
+	'#NewsOther': [ 'Other', 'Gigazine, ネタりか', 'rss' ],
 	'#Profile': [ '', '', '' ],
 	'#Blog': [ '', '', '' ]
 };

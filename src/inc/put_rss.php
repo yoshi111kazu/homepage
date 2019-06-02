@@ -1,7 +1,7 @@
-<?
+<?php
 /*****************************************************************************
  *  name        : put_rss.php
- *  function    : 
+ *  function    :
  *
  ****************************************************************************/
 /****************/
@@ -19,7 +19,7 @@
 	$today_news = array();
 	$today_date = date("Ymd") - 1;
 
-	$genre = array( 'music_oversea', 'music_item', 'it_it', 'it_program', 'it_infra', 'it_posting', 'it_company', 'it_yuru', 'health', 'blog', 'blog_new' );
+	$genre = array( 'music_oversea', 'music_item', 'it_it', 'it_program', 'it_posting', 'it_company', 'health', 'business', 'other', 'blog', 'blog_new' );
 	foreach( $genre as $key => $val ) {
 		$assign_data = array();
 		if ( $val == 'blog_new' ) {
@@ -36,12 +36,14 @@
 			fwrite($fp, json_encode($assign_data['merge_data']) );
 			fclose($fp);
 		}
-		
+
 		// Today News
-		foreach( $assign_data['merge_data'] as $key => $val ) {
-			$str_date = str_replace( '/', '', mb_substr( $val['update'], 1, 10 ) );
-			if ( $str_date >= $today_date ) {
-				$today_news[] = $val;
+		if ( $val != 'other' ) {
+			foreach( $assign_data['merge_data'] as $key => $val ) {
+				$str_date = str_replace( '/', '', mb_substr( $val['update'], 1, 10 ) );
+				if ( $str_date >= $today_date ) {
+					$today_news[] = $val;
+				}
 			}
 		}
 	}

@@ -1,7 +1,7 @@
-<?
+<?php
 /*****************************************************************************
  *  name        : rss_check_genre.php?genre=xx
- *  function    : 
+ *  function    :
  *
  ****************************************************************************/
 /****************/
@@ -22,7 +22,7 @@
 		$assign_data['merge_data'] = $ClsRSS->getFullRSS( $genre, '20' );
 		$assign_data['rss_site'] = $rss_site;
 
-	
+
 		echo "<pre>";
 		//print_r ( $assign_data['merge_data'] );
 		print_r ( $rss_site );

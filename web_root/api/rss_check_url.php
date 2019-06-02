@@ -1,7 +1,7 @@
-<?
+<?php
 /*****************************************************************************
  *  name        : rss_check_genre.php?genre=xx
- *  function    : 
+ *  function    :
  *
  ****************************************************************************/
 /****************/
@@ -25,7 +25,7 @@ echo "<hr>";
 	$url = $_POST['url'];
 	if ( isset( $url ) ) {
 		$ClsRSS = new ClsRSS();
-		$rss =& new XML_RSS( $url );
+		$rss = new XML_RSS( $url );
 		$rss->parse();
 		$rss_data = doAuto2Utf8( $rss->getItems() );
 		echo "URL: " . $url . "<br><br>";
