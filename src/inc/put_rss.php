@@ -1,7 +1,7 @@
-<?
+<?php
 /*****************************************************************************
  *  name        : put_rss.php
- *  function    : 
+ *  function    :
  *
  ****************************************************************************/
 /****************/
@@ -36,7 +36,7 @@
 			fwrite($fp, json_encode($assign_data['merge_data']) );
 			fclose($fp);
 		}
-		
+
 		// Today News
 		if ( $val != 'other' ) {
 			foreach( $assign_data['merge_data'] as $key => $val ) {

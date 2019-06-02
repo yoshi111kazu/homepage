@@ -1,4 +1,4 @@
-<?
+<?php
 /*****************************************************************************
  *  name        : EpSession.inc
  *  function    : セッション支援クラス
@@ -11,7 +11,7 @@ class EpSession {
 	/******************/
 	/* コンストラクタ */
 	/******************/
-	function EpSession(){
+	function __construct(){
 		//セッションキャッシュの有効期限
 		session_cache_expire( SESSION_CACHE_EXPIRE );
 

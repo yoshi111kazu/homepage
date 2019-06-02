@@ -13,7 +13,7 @@ class ClsRSS {
 	/******************/
 	/* コンストラクタ */
 	/******************/
-	function ClsRSS() {
+	function __construct() {
 		require_once( 'XML/RSS.php' );
 	}
 
@@ -23,7 +23,7 @@ class ClsRSS {
 	function getFullRSS( $genre = 'all', $limit = '20' ) {
 
 		global $rss_site;
-		$rss_site = array();	
+		$rss_site = array();
 		if ( $genre == 'music_oversea' ) {
 			$rss_site[] = array( 'site' => 'BARKS', 'URL' => 'https://feeds.barks.jp/rss/barks_news_oversea.rdf' );
 			$rss_site[] = array( 'site' => 'RO69', 'URL' => 'https://ro69.jp/news/index.rss?category=2' );
@@ -51,7 +51,7 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'cookpad', 'URL' => 'https://techlife.cookpad.com/rss', 'no_desc' => true );
 			//$rss_site[] = array( 'site' => 'はてな', 'URL' => 'https://developer.hatenastaff.com/rss', 'no_desc' => true );
 			$rss_site[] = array( 'site' => 'mercari', 'URL' => 'https://tech.mercari.com/rss', 'no_desc' => true );
-			$rss_site[] = array( 'site' => 'TORETA', 'URL' => 'https://tech.toreta.in/rss', 'no_desc' => true );
+			//$rss_site[] = array( 'site' => 'TORETA', 'URL' => 'https://tech.toreta.in/rss', 'no_desc' => true );
 			$rss_site[] = array( 'site' => 'LINE', 'URL' => 'https://engineering.linecorp.com/ja/blog/rss2', 'no_desc' => true );
 			$rss_site[] = array( 'site' => 'HEARTBEATS', 'URL' => 'https://heartbeats.jp/hbblog/atom.xml' );
 		} elseif ( $genre == 'health' ) {
@@ -69,15 +69,15 @@ class ClsRSS {
 			$rss_site[] = array( 'site' => 'Gigazine', 'URL' => 'https://gigazine.net/news/rss_2.0/' );
 			$rss_site[] = array( 'site' => 'ネタりか', 'URL' => 'https://netallica.yahoo.co.jp/rss/top' );
 		} elseif ( $genre == 'blog' || $genre == 'blog_new' ) {
-			$rss_site[] = array( 'site' => 'yoshi111kazu', 'URL' => 'https://blog.ishino.info/?feed=rss2' );
+			//$rss_site[] = array( 'site' => 'yoshi111kazu', 'URL' => 'https://blog.ishino.info/?feed=rss2' );
 		} else {
 		}
 
-		$rss_data = array();	
+		$rss_data = array();
 		$result = array();
 
 		foreach ( $rss_site as $key => $val ) {
-			$rss =& new XML_RSS( $val['URL'] );
+			$rss = new XML_RSS( $val['URL'] );
 			$rss->parse();
 			$rss_data = doAuto2Utf8( $rss->getItems() );
 			//print_r( $rss_data );
